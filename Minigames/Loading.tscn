@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcl8yeyeuuvwj"]
+
+[ext_resource type="Script" uid="uid://dvp5rr00fvvb0" path="res://Scripts/loading.gd" id="1_xndhf"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="3_2j3yu"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="4_e6rcm"]
+[ext_resource type="Texture2D" uid="uid://dlcswslrg21jh" path="res://Assets/Money.png" id="5_25juy"]
+[ext_resource type="AudioStream" uid="uid://cwywgtyntwp37" path="res://Assets/Sound/Pop-Up by IENBA.wav" id="7_sd0nx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_suhxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mnpf"]
+bg_color = Color(0.251499, 0.615085, 0.97032, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("progress_bar", "cashout_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xndhf")
+progress_bar = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/ProgressBar")
+cashout_button = NodePath("MarginContainer/VBoxContainer/Button")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_sd0nx")
+volume_db = -2.296
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_2j3yu")]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_suhxr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0mnpf")
+show_percentage = false
+
+[node name="Button" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_e6rcm")]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("5_25juy")

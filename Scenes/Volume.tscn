@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://qq8fuiosbye7"]
+
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_7c1ds"]
+[ext_resource type="Texture2D" uid="uid://c7mva2hqcdwws" path="res://Assets/VolumeIndicator.png" id="2_cgr4m"]
+[ext_resource type="Texture2D" uid="uid://kdqp7d0p01xw" path="res://Assets/Grabber.png" id="2_v55d6"]
+[ext_resource type="Script" uid="uid://cpoqhnilhf7bn" path="res://Scripts/Volume_Slider.gd" id="4_vbwsi"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s3kui"]
+thickness = 3
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jw7j0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjb3f"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(24, 72)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -72.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" parent="." instance=ExtResource("1_7c1ds")]
+custom_minimum_size = Vector2(24, 72)
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cgr4m")
+stretch_mode = 2
+
+[node name="VSlider" type="VSlider" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_icons/grabber = ExtResource("2_v55d6")
+theme_override_icons/grabber_highlight = ExtResource("2_v55d6")
+theme_override_icons/grabber_disabled = ExtResource("2_v55d6")
+theme_override_styles/slider = SubResource("StyleBoxLine_s3kui")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_jw7j0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_kjb3f")
+script = ExtResource("4_vbwsi")

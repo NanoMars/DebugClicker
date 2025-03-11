@@ -1,0 +1,245 @@
+[gd_scene load_steps=49 format=3 uid="uid://cn58jbxxqbu4j"]
+
+[ext_resource type="Texture2D" uid="uid://dssfakba2nidi" path="res://Assets/OldAssets/Wallpaper 1.png" id="1_7nsg8"]
+[ext_resource type="PackedScene" uid="uid://bsjokgprqcf5y" path="res://UI_Basic/Widget.tscn" id="2_smwi0"]
+[ext_resource type="PackedScene" uid="uid://cpjrwji61dpst" path="res://Scenes/MoneyCounter.tscn" id="3_vpyqv"]
+[ext_resource type="Script" uid="uid://b2e158attsnfi" path="res://Scripts/GameManager.gd" id="4_rht7d"]
+[ext_resource type="Texture2D" uid="uid://cjd5ec7207dca" path="res://Assets/Chat.png" id="5_fnofg"]
+[ext_resource type="PackedScene" uid="uid://da6n4ps2ngf6j" path="res://Minigames/Chat.tscn" id="6_4bu5h"]
+[ext_resource type="Texture2D" uid="uid://krtan42rrmc5" path="res://Assets/Clicker.png" id="7_dt5gl"]
+[ext_resource type="PackedScene" uid="uid://upa47sauh75v" path="res://Minigames/Clicker.tscn" id="8_khgc2"]
+[ext_resource type="Texture2D" uid="uid://cblsq7xlo7f5e" path="res://Assets/DVDpixel.png" id="9_qltea"]
+[ext_resource type="PackedScene" uid="uid://d01uvi0s82obg" path="res://Minigames/DVD.tscn" id="10_762tp"]
+[ext_resource type="Texture2D" uid="uid://cqjnbginr15k7" path="res://Assets/LoadingIconPixel.png" id="11_ocugt"]
+[ext_resource type="PackedScene" uid="uid://dcl8yeyeuuvwj" path="res://Minigames/Loading.tscn" id="12_xtuaq"]
+[ext_resource type="Texture2D" uid="uid://cibtwlt5f4h1t" path="res://Assets/TaskManagerIconSmall.png" id="13_tcmij"]
+[ext_resource type="PackedScene" uid="uid://d1doq155yexx5" path="res://Minigames/Task Manager.tscn" id="14_lq2g2"]
+[ext_resource type="Texture2D" uid="uid://55eqtpwj4yaj" path="res://Assets/TerminalIcon.png" id="15_q5rhx"]
+[ext_resource type="PackedScene" uid="uid://dof8jvriwo3u8" path="res://Minigames/TerminalGame.tscn" id="16_y8hac"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="17_bnx5y"]
+[ext_resource type="Script" uid="uid://iyan87hf5ehl" path="res://Scripts/AppIcon.gd" id="18_ym8xi"]
+[ext_resource type="PackedScene" uid="uid://c56xsep8dbxar" path="res://UI_Basic/Window.tscn" id="19_oc4vn"]
+[ext_resource type="Texture2D" uid="uid://d2g7hujniwhvw" path="res://Assets/HeliOS 16.png" id="20_q8d41"]
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="20_smwi0"]
+[ext_resource type="Script" uid="uid://2rp3xn0e3pk8" path="res://UI_Basic/Start_Menu.gd" id="21_gb37r"]
+[ext_resource type="PackedScene" uid="uid://cuypar36shqmm" path="res://UI_Basic/div.tscn" id="22_4d2dp"]
+[ext_resource type="Texture2D" uid="uid://mccvm6hhegqr" path="res://Assets/Cog.png" id="23_ulnjw"]
+[ext_resource type="PackedScene" uid="uid://ci56h0ahscv1o" path="res://Scenes/Settings.tscn" id="24_wrc26"]
+[ext_resource type="Texture2D" uid="uid://cknco08lnu7wu" path="res://Assets/Shopping_Cart.png" id="25_eco8d"]
+[ext_resource type="PackedScene" uid="uid://ddhdej6rlccke" path="res://Scenes/Shop.tscn" id="26_4gua2"]
+[ext_resource type="Texture2D" uid="uid://c5iyfhmj26ce6" path="res://Assets/Volume.png" id="27_2cotp"]
+[ext_resource type="Script" uid="uid://dog0pko23022p" path="res://Scripts/Speaker_Button.gd" id="28_nf03q"]
+[ext_resource type="PackedScene" uid="uid://qq8fuiosbye7" path="res://Scenes/Volume.tscn" id="29_f6hvx"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="30_po8i8"]
+[ext_resource type="Script" uid="uid://bct1tlse4jmel" path="res://Scripts/Clock.gd" id="31_pmoa4"]
+[ext_resource type="PackedScene" uid="uid://b58gwifdqjfvw" path="res://Scenes/StartMenu.tscn" id="32_osgqc"]
+[ext_resource type="Script" uid="uid://beyu73siy1bwj" path="res://Scripts/Particle_Manager.gd" id="33_r2u62"]
+[ext_resource type="PackedScene" uid="uid://duqh6ebvgbnst" path="res://Scenes/Particle.tscn" id="34_iafbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0xii"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 1)
+border_width_top = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44ygq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etf6c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8itkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggc2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kw0yn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_foei1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpidd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0i7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vieb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnw4e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jug6v"]
+
+[sub_resource type="Curve" id="Curve_mywvf"]
+_data = [Vector2(0.0069808, 0.961708), 0.0, -0.0895555, 0, 0, Vector2(1, 0.410309), 0.095396, 0.0, 0, 0]
+point_count = 2
+
+[node name="BaseNode" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7nsg8")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Game" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MainWindow" type="Control" parent="Game" groups=["MainWindow"]]
+clip_children = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" parent="Game/MainWindow" instance=ExtResource("2_smwi0")]
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 50.0
+
+[node name="VBoxContainer" parent="Game/MainWindow/MarginContainer" instance=ExtResource("3_vpyqv")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Game"]
+custom_minimum_size = Vector2(0, 19)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0xii")
+
+[node name="MarginContainer" type="MarginContainer" parent="Game/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/PanelContainer/MarginContainer" node_paths=PackedStringArray("spacer")]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_constants/separation = 1
+script = ExtResource("4_rht7d")
+shop_items = Dictionary[String, Array]({
+"Chat": [ExtResource("5_fnofg"), ExtResource("6_4bu5h"), Vector2(200, 85)],
+"Clicker": [ExtResource("7_dt5gl"), ExtResource("8_khgc2")],
+"DVD": [ExtResource("9_qltea"), ExtResource("10_762tp"), Vector2(160, 100)],
+"Loading": [ExtResource("11_ocugt"), ExtResource("12_xtuaq")],
+"Task Manager": [ExtResource("13_tcmij"), ExtResource("14_lq2g2"), Vector2(160, 114)],
+"Terminal": [ExtResource("15_q5rhx"), ExtResource("16_y8hac")]
+})
+button = ExtResource("17_bnx5y")
+button_script = ExtResource("18_ym8xi")
+window_scene = ExtResource("19_oc4vn")
+spacer = NodePath("Spacer")
+
+[node name="Button" parent="Game/PanelContainer/MarginContainer/HBoxContainer" node_paths=PackedStringArray("start_menu") instance=ExtResource("17_bnx5y")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("20_smwi0")
+icon = ExtResource("20_q8d41")
+icon_alignment = 2
+expand_icon = false
+script = ExtResource("21_gb37r")
+start_menu = NodePath("../../../../../Start Menu/PanelContainer")
+
+[node name="Panel" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("22_4d2dp")]
+layout_mode = 2
+
+[node name="Button2" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("17_bnx5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("23_ulnjw")
+script = ExtResource("18_ym8xi")
+window_scene = ExtResource("19_oc4vn")
+content = ExtResource("24_wrc26")
+
+[node name="Button4" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("17_bnx5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("25_eco8d")
+script = ExtResource("18_ym8xi")
+window_scene = ExtResource("19_oc4vn")
+content = ExtResource("26_4gua2")
+window_custom_minumum_size = Vector2(146, 113)
+
+[node name="Spacer" type="Control" parent="Game/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="Game/PanelContainer/MarginContainer/HBoxContainer" node_paths=PackedStringArray("volume_menu")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_44ygq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_etf6c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8itkg")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ggc2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kw0yn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_foei1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dpidd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_u0i7f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vieb1")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wnw4e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jug6v")
+icon = ExtResource("27_2cotp")
+script = ExtResource("28_nf03q")
+volume_menu = NodePath("Control")
+
+[node name="Control" parent="Game/PanelContainer/MarginContainer/HBoxContainer/Button3" instance=ExtResource("29_f6hvx")]
+layout_mode = 1
+offset_left = -21.0
+offset_top = -90.0
+offset_right = 21.0
+offset_bottom = -18.0
+
+[node name="Control2" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("30_po8i8")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Game/PanelContainer/MarginContainer/HBoxContainer/Control2"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="Label" type="Label" parent="Game/PanelContainer/MarginContainer/HBoxContainer/Control2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "12:34 PM"
+horizontal_alignment = 1
+script = ExtResource("31_pmoa4")
+
+[node name="Start Menu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+offset_right = 16.0
+grow_vertical = 0
+theme_override_constants/margin_bottom = 19
+
+[node name="PanelContainer" parent="Start Menu" instance=ExtResource("32_osgqc")]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ParticleManager" type="Control" parent="." node_paths=PackedStringArray("goal_node")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("33_r2u62")
+control_node_scene = ExtResource("34_iafbs")
+spawn_parent_path = NodePath(".")
+goal_node = NodePath("../Game/MainWindow/MarginContainer")
+acceleration_curve = SubResource("Curve_mywvf")
+air_resistance = 2.0
+clump_interval = 0.1

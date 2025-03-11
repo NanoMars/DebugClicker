@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://cf2l0xplysrie"]
+
+[resource]
+draw_center = false
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)

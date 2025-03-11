@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba1vie2a1jbt5"
+path="res://.godot/imported/Send Message ElGamer7876.mp3-24f4dec1c4d39e849b3eacb2ea9d661b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Send Message ElGamer7876.mp3"
+dest_files=["res://.godot/imported/Send Message ElGamer7876.mp3-24f4dec1c4d39e849b3eacb2ea9d661b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

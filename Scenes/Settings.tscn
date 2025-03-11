@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci56h0ahscv1o"]
+
+[ext_resource type="PackedScene" uid="uid://b01r76cf7whyd" path="res://Scenes/Setting.tscn" id="1_kbwyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2fp1"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(145, 81)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e2fp1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_kbwyn")]
+layout_mode = 2
+setting = "Particles_Enabled"

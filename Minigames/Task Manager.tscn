@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1doq155yexx5"]
+
+[ext_resource type="Script" uid="uid://cbqajsnmxu2cw" path="res://Scripts/task_manager.gd" id="1_6suoa"]
+[ext_resource type="PackedScene" uid="uid://cxa7l3q4y5av0" path="res://Minigames/TaskManager Task.tscn" id="1_uncxg"]
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="3_phrgm"]
+[ext_resource type="FontFile" uid="uid://81fd5aw0u0e8" path="res://Assets/Fonts/Pixolletta10px.ttf" id="4_o8ffk"]
+[ext_resource type="PackedScene" uid="uid://cuypar36shqmm" path="res://UI_Basic/div.tscn" id="5_n6jvp"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="6_7n6yw"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="7_g634s"]
+[ext_resource type="Texture2D" uid="uid://c5j14upfbq421" path="res://Assets/RedX.png" id="8_pp2gb"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("task_container", "end_task", "timer_thing")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -325.0
+offset_bottom = -206.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6suoa")
+task_container = NodePath("VBoxContainer/MarginContainer/MarginContainer/VBoxContainer")
+task = ExtResource("1_uncxg")
+end_task = NodePath("VBoxContainer/MarginContainer2/Button")
+timer_thing = NodePath("Timer")
+task_count = 3
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" parent="VBoxContainer" instance=ExtResource("3_phrgm")]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Control"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_o8ffk")
+theme_override_font_sizes/font_size = 10
+text = "asdfghjk"
+horizontal_alignment = 1
+
+[node name="Panel" parent="VBoxContainer/Control/MarginContainer/HBoxContainer" instance=ExtResource("5_n6jvp")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_o8ffk")
+theme_override_font_sizes/font_size = 10
+text = "asdfghjk"
+horizontal_alignment = 1
+
+[node name="MarginContainer" parent="VBoxContainer" instance=ExtResource("6_7n6yw")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" parent="VBoxContainer/MarginContainer2" instance=ExtResource("7_g634s")]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("8_pp2gb")

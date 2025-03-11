@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://upa47sauh75v"]
+
+[ext_resource type="Script" uid="uid://1kg1h6wr2lti" path="res://Scripts/clicker.gd" id="1_dqtaq"]
+[ext_resource type="Texture2D" uid="uid://dvutqpxhumwit" path="res://Assets/Piskel Image (1).png" id="2_yhdgw"]
+[ext_resource type="Texture2D" uid="uid://m0sie5pt0sfn" path="res://Assets/Thermometer2.png" id="3_fcs6h"]
+[ext_resource type="Texture2D" uid="uid://coem5kwcm74sf" path="res://Assets/Thermometer1.png" id="4_x6ns5"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("texture_button", "temp_display")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dqtaq")
+texture_button = NodePath("MarginContainer/TextureButton")
+temp_display = NodePath("MarginContainer/TextureProgressBar")
+cold = 20.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_yhdgw")
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+max_value = 32.0
+value = 19.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = ExtResource("3_fcs6h")
+texture_progress = ExtResource("4_x6ns5")

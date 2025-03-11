@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b01r76cf7whyd"]
+
+[ext_resource type="Texture2D" uid="uid://c2usy422xoys1" path="res://Assets/OldAssets/Particle.png" id="1_4v67x"]
+[ext_resource type="Script" uid="uid://cjsjk0p5qwlfj" path="res://Scripts/setting.gd" id="1_qke6w"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_constants/separation = 30
+script = ExtResource("1_qke6w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_4v67x")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+button_pressed = true

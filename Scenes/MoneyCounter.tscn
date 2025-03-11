@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpjrwji61dpst"]
+
+[ext_resource type="Script" uid="uid://c8axsnhc2dx2" path="res://Scripts/MoneyDisplay.gd" id="1_6uev4"]
+
+[node name="VBoxContainer" type="VBoxContainer" node_paths=PackedStringArray("money_counter", "cps_display")]
+theme_override_constants/separation = -8
+script = ExtResource("1_6uev4")
+money_counter = NodePath("Money counter")
+cps_display = NodePath("CPS display")
+
+[node name="Money counter" type="Label" parent="."]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "$123"
+horizontal_alignment = 1
+
+[node name="CPS display" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "456/s"
+horizontal_alignment = 1

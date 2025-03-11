@@ -1,0 +1,205 @@
+[gd_scene load_steps=13 format=3 uid="uid://da6n4ps2ngf6j"]
+
+[ext_resource type="Script" uid="uid://2x6148vcsfiq" path="res://Scripts/chat.gd" id="1_lnuvd"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="4_esorl"]
+[ext_resource type="Texture2D" uid="uid://pcmcgben65k2" path="res://Assets/user_blue.png" id="5_gutgd"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="5_wlfbx"]
+[ext_resource type="Texture2D" uid="uid://b4dp6q5ruk4qs" path="res://Assets/user_green.png" id="6_885k0"]
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="7_84ge8"]
+[ext_resource type="AudioStream" uid="uid://ba1vie2a1jbt5" path="res://Assets/Sound/Send Message ElGamer7876.mp3" id="7_jdef8"]
+[ext_resource type="AudioStream" uid="uid://cwywgtyntwp37" path="res://Assets/Sound/Pop-Up by IENBA.wav" id="8_gx3ft"]
+[ext_resource type="Texture2D" uid="uid://c2iss3d88l0ve" path="res://Assets/Send.png" id="9_84ge8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpjjv"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4g0d"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhh7j"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("chat_input", "chat_history_label", "send_button", "incoming_message_timer", "message_sound_effect", "message_send_sound_effect", "notification_icon")]
+custom_minimum_size = Vector2(1.06, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -211.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lnuvd")
+chat_input = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Control/MarginContainer/LineEdit")
+chat_history_label = NodePath("VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/Control/Label")
+send_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Button")
+incoming_message_timer = NodePath("Timer")
+message_sound_effect = NodePath("AudioStreamPlayer")
+message_send_sound_effect = NodePath("AudioStreamPlayer2")
+notification_icon = NodePath("VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jdef8")
+volume_db = 16.026
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gx3ft")
+volume_db = 16.026
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.556863, 0.556863, 0.556863, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+
+[node name="Control" parent="VBoxContainer/MarginContainer2" instance=ExtResource("4_esorl")]
+clip_children = 1
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/Control"]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/Control/MarginContainer"]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("5_gutgd")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("6_885k0")
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -305.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_84ge8")
+theme_override_font_sizes/font_size = 8
+text = "a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+aafjdshfkljahdsklfhalksdhf"
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 1
+
+[node name="Control" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_esorl")]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/Control"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/Control/MarginContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.231373, 0.231373, 0.231373, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_84ge8")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxFlat_kpjjv")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_f4g0d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yhh7j")
+
+[node name="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_wlfbx")]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+icon = ExtResource("9_84ge8")

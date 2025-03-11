@@ -1,0 +1,201 @@
+[gd_scene load_steps=21 format=3 uid="uid://ddhdej6rlccke"]
+
+[ext_resource type="Script" uid="uid://bobuhpcwbk8er" path="res://Scripts/ShopHandler.gd" id="1_2pg0a"]
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_db8k6"]
+[ext_resource type="PackedScene" uid="uid://v266gbtdkfuu" path="res://Scenes/ShopItem.tscn" id="1_iltxs"]
+[ext_resource type="Script" uid="uid://kkf572yraoi2" path="res://Scenes/TabSystem.gd" id="2_m1c0q"]
+[ext_resource type="Script" uid="uid://ulgak70x80qb" path="res://Scripts/HideFirstShopItem.gd" id="3_2x7t7"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="3_dael7"]
+[ext_resource type="Texture2D" uid="uid://buqagi6gi0h2" path="res://Assets/OldAssets/Terminal Icon.png" id="3_fqkvv"]
+[ext_resource type="Texture2D" uid="uid://cknco08lnu7wu" path="res://Assets/Shopping_Cart.png" id="4_gufdo"]
+[ext_resource type="Texture2D" uid="uid://b7gllr7sjaf46" path="res://Assets/OldAssets/ChatIcon.png" id="4_x7viu"]
+[ext_resource type="Texture2D" uid="uid://dbn10c7h44nn0" path="res://Assets/Upgrade.png" id="5_ox0pj"]
+[ext_resource type="Texture2D" uid="uid://b15m745gsbgjj" path="res://Assets/OldAssets/DVD icon.png" id="5_wxl3y"]
+[ext_resource type="Texture2D" uid="uid://c3bq0gs8unkmg" path="res://Assets/OldAssets/LoadingIcon.png" id="6_cytu8"]
+[ext_resource type="Texture2D" uid="uid://drg7eiri562ol" path="res://Assets/OldAssets/TaskManagerIcon.png" id="7_n041r"]
+[ext_resource type="PackedScene" uid="uid://rmjs3oogvhia" path="res://Scenes/Upgrade.tscn" id="15_estnu"]
+[ext_resource type="Texture2D" uid="uid://bckar0rffek3l" path="res://Assets/Production.png" id="16_estnu"]
+[ext_resource type="Texture2D" uid="uid://krtan42rrmc5" path="res://Assets/Clicker.png" id="16_mk6g2"]
+[ext_resource type="PackedScene" uid="uid://pwah1lqa5quv" path="res://UI_Basic/V_Seperator.tscn" id="16_wvogg"]
+[ext_resource type="Texture2D" uid="uid://3lrjl8n1k2pu" path="res://Assets/Shopping_Cart_Purchased.png" id="17_wvogg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1c0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6epge"]
+
+[node name="VBoxContainer2" type="VBoxContainer"]
+offset_right = 136.0
+offset_bottom = 82.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="Control2" parent="." instance=ExtResource("1_db8k6")]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2" node_paths=PackedStringArray("tab_contents")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("2_m1c0q")
+button_scene = ExtResource("3_dael7")
+tab_buttons = Array[Texture]([ExtResource("4_gufdo"), ExtResource("5_ox0pj")])
+tab_contents = [NodePath("../../Control/ScrollContainer"), NodePath("../../Control/ScrollContainer2")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" node_paths=PackedStringArray("shop_item_to_hide")]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_m1c0q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6epge")
+horizontal_scroll_mode = 0
+script = ExtResource("3_2x7t7")
+shop_item_to_hide = NodePath("VBoxContainer/ShopItem6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+script = ExtResource("1_2pg0a")
+
+[node name="ShopItem6" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Name = "Clicker"
+metadata/Image = ExtResource("3_fqkvv")
+
+[node name="ShopItem" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Price = 50
+metadata/Name = "Terminal"
+metadata/Image = ExtResource("3_fqkvv")
+
+[node name="ShopItem2" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Price = 500
+metadata/Name = "Chat"
+metadata/Image = ExtResource("4_x7viu")
+
+[node name="ShopItem3" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Price = 2500
+metadata/Name = "DVD"
+metadata/Image = ExtResource("5_wxl3y")
+
+[node name="ShopItem4" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Price = 7000
+metadata/Name = "Loading"
+metadata/Image = ExtResource("6_cytu8")
+
+[node name="ShopItem5" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
+layout_mode = 2
+metadata/Price = 10000
+metadata/Name = "Task Manager"
+metadata/Image = ExtResource("7_n041r")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+
+[node name="Upgrades_Available" type="GridContainer" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="Button" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("16_mk6g2")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 1000
+flag_name = "Clicker_Multiplier"
+upgrade_name = "Clicker_Multiplier_1"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button2" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("16_mk6g2")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 5000
+flag_name = "Clicker_Multiplier"
+upgrade_name = "Clicker_Multiplier_2"
+upgrade_level = 2
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button3" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("16_mk6g2")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 25000
+flag_name = "Clicker_Multiplier"
+upgrade_name = "Clicker_Multiplier_3"
+upgrade_level = 2
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button4" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("16_mk6g2")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 50000
+flag_name = "Clicker_Multiplier"
+upgrade_name = "Clicker_Multiplier_4"
+upgrade_level = 2
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Control" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("16_wvogg")]
+layout_mode = 2
+texture = ExtResource("17_wvogg")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="Upgrades_Owned" type="GridContainer" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2

@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://dof8jvriwo3u8"]
+
+[ext_resource type="Script" uid="uid://cfirkrdsw5am8" path="res://Scripts/terminal_game.gd" id="1_dwr7a"]
+[ext_resource type="Script" uid="uid://b0i8lny880tbv" path="res://Scripts/TerminalYap.gd" id="2_3ohpm"]
+[ext_resource type="PackedScene" uid="uid://c56xsep8dbxar" path="res://UI_Basic/Window.tscn" id="5_aeqbl"]
+[ext_resource type="AudioStream" uid="uid://b1fhk3om1d7cg" path="res://Assets/Sound/Error.mp3" id="5_y7p1c"]
+[ext_resource type="Texture2D" uid="uid://baielg743e0so" path="res://Assets/Warning.png" id="6_d5avv"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="7_xpy18"]
+[ext_resource type="Texture2D" uid="uid://dx3yhbdx13kdx" path="res://Assets/Thumbsup.png" id="8_d0es0"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("crash_timer", "reward_timer", "close_crash", "show_crash", "yap_timer", "error_sound")]
+clip_children = 1
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -8.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dwr7a")
+crash_timer = NodePath("crash timer")
+reward_timer = NodePath("reward timer")
+close_crash = NodePath("MarginContainer/VBoxContainer/MarginContainer/Button")
+show_crash = NodePath("MarginContainer")
+yap_timer = NodePath("yap timer")
+error_sound = NodePath("AudioStreamPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." node_paths=PackedStringArray("timer")]
+process_mode = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "2341:9bn0-lnx@u ~^ /u0r xLsh 4xy9
+jKx9-a1Z.37C zfQ0 [qu?] &= !
+⣜⢵⠷⡯⣺⠗⡻⣄⠝⡧⡿⠞⣍⢲⣽⠋⢤⡺⠧⣹⡇⠾⣡⢣⠎
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a"
+vertical_alignment = 2
+clip_text = true
+text_overrun_behavior = 1
+script = ExtResource("2_3ohpm")
+timer = NodePath("../yap timer")
+
+[node name="crash timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="reward timer" type="Timer" parent="."]
+
+[node name="yap timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y7p1c")
+volume_db = -5.0
+
+[node name="MarginContainer" parent="." instance=ExtResource("5_aeqbl")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/Icon = ExtResource("6_d5avv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "!!!!!!!!!"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Button" parent="MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("7_xpy18")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("8_d0es0")

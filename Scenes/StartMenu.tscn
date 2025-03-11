@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3 uid="uid://b58gwifdqjfvw"]
+
+[ext_resource type="Texture2D" uid="uid://bfmqo3df8cd0e" path="res://Assets/ShutDown.png" id="2_8umlg"]
+[ext_resource type="Script" uid="uid://besx8i6dr7l87" path="res://Scripts/quit_button.gd" id="2_j1syg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whbrw"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fukx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftgva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2wsf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5lqnn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dogol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rup0s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puhr3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ave2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68glx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2xym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57eqg"]
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(16, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_right = 18.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_whbrw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fukx0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ftgva")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v2wsf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5lqnn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dogol")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rup0s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_puhr3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ave2j")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_68glx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_a2xym")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_57eqg")
+icon = ExtResource("2_8umlg")
+expand_icon = true
+script = ExtResource("2_j1syg")

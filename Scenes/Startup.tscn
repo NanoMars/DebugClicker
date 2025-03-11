@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://wr0cd7g52yl0"]
+
+[ext_resource type="FontFile" uid="uid://tlun3dv1bj8d" path="res://Assets/Fonts/AtkinsonHyperlegibleMono-VariableFont_wght.ttf" id="1_iqtpt"]
+[ext_resource type="Script" uid="uid://ec7e86h6sb73" path="res://Scripts/startupYap.gd" id="1_wwklj"]
+[ext_resource type="Script" uid="uid://ogbrpwdcrneu" path="res://Scripts/label.gd" id="3_m2ine"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwklj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_iqtpt")
+theme_override_font_sizes/font_size = 20
+text = "ѦϤⱷ Ꮺⱷϟ ȺҾϠϢ v6.00PG, ϟⱷⱠ ϡϢϤⱶϟ ⱶϤϟ ϠϡϢϣ  
+ϠⱶᎩⱺϠ ȺҾϠϢ (C) 1984-2001, ѦϤⱷ Ϡⱶ Ϫⱶϟ ᎩⱺϠ  
+
+Ϡⱶ Ꮺⱷϟ Ϡⱶ ⱶϤϟ ϟⱷⱠ 2.40Ⱶϡ  
+Ϟⱶ ⱶϤϟ ϟⱷⱠⱶϤϠϢ: 524288ⱵϤ ϠϡϢϣ  
+
+Ϡⱶ ϟⱷⱠⱶϤϠϢ Ϡⱶ: Ϟⱷⱪ ⱵϠⱶⱵϤⱵ-00ϢϡⱪⱵ  
+Ϡⱶ ϟⱷⱠⱶϤϠϢ Ϫⱶϟ: ϞⱶⱠϢ  
+ⱶϤϟ Ϡⱶ ⱶϤϟ Ϡⱶ Ꮺⱷϟ Ϡⱶ: ϞⱪⱵϤ ⱶϟⱵ-ⱵⱵϤϡ ϡϢϤ  
+ⱶϤϟ Ϡⱶ ⱶϤϟ Ϡⱶ Ꮺⱷϟ Ϫⱶϟ: ϞⱶⱠϢ  
+
+ϡⱶϤⱷⱠⱶϤϠϢ Ϡⱶ ϡⱶϟ Ϡⱶ ... ϞⱶⱠϢ  
+Ꮺⱷϟ Ϡⱶ ϠⱶⱶϤϟ ⱵϡϠⱵ ⱶϤϟⱠϢ... ϞⱶⱠϢ  
+
+Ϡⱶ Ꮺⱷϟ DEL Ϡⱶ Ϫⱶ Ϡⱶ ⱶϤϟⱠϢ  
+Ϡⱶ ϠⱶⱶϤϟ F8 Ϡⱶ BBS ⱶϤϟⱠϢ  
+
+Ϡⱶ ϡⱶϤⱷⱠⱶϤϠϢ ⱵϡϠⱵ ⱶϤϟⱠϢ ... ϞⱶⱠϢ  
+Ϡⱶ ϪⱶϟⱶϤϟ: ⱵϟⱵ/2 ⱶϤϟⱠϢ  
+Ϡⱶ ϠⱶⱶϤϟⱶϤϠϢ: ⱵϟⱵ/2 ⱶϤϟⱠϢ  
+
+Ϡⱶ ϟⱷⱠⱶϤϠϢ DMI ⱶϤϟⱠϢ ...  
+Ϡⱶ ϡⱶϤⱷⱠϢ Ϡⱶ Ⱶⱪ: _  
+Ϡⱶ ϡⱶϤⱷⱠϢ Ϡⱶ ϪⱶϟⱶϤϟ: ϠⱶⱶϤϟⱶϤϠϢ ⱵϠϟⱵϤϟⱪⱵϡ  
+
+ϠⱶⱶϤϟⱶϤϠϢ ϠⱶⱶϤϟⱶϤϠϢ ⱵϠϟⱵϤϟⱪⱵϡ...  "
+script = ExtResource("3_m2ine")

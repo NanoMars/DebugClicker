@@ -1,0 +1,324 @@
+[gd_scene load_steps=21 format=3 uid="uid://c56xsep8dbxar"]
+
+[ext_resource type="Script" uid="uid://tytxqwtvcyys" path="res://UI_Basic/window.gd" id="1_l584d"]
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_lfn6j"]
+[ext_resource type="PackedScene" uid="uid://bsyh17u426r5u" path="res://UI_Basic/TextureBox.tscn" id="2_bppmm"]
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="5_xtwdi"]
+[ext_resource type="Texture2D" uid="uid://xy3ig27gp7sk" path="res://Assets/X.png" id="6_j1vis"]
+[ext_resource type="Script" uid="uid://db3ysajfqurl0" path="res://UI_Basic/X_Button_Windows.gd" id="7_h40yg"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="7_u3kkb"]
+[ext_resource type="Script" uid="uid://br7qfb5mjaobq" path="res://UI_Basic/Window_Scaling.gd" id="8_2a3d2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sh26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnl7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyf3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eog37"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fivr1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5njbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usgyr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3lx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtq0e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6oad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cqm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqsu1"]
+
+[node name="Window" type="MarginContainer" groups=["Window"]]
+custom_minimum_size = Vector2(64, 32)
+offset_right = 64.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="area" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = -5
+theme_override_constants/margin_top = -16
+theme_override_constants/margin_right = -5
+theme_override_constants/margin_bottom = -5
+
+[node name="Control2" parent="area" instance=ExtResource("1_lfn6j")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="area/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" parent="area/Control2/VBoxContainer" instance=ExtResource("1_lfn6j")]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="area/Control2/VBoxContainer/Control"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" parent="area/Control2/VBoxContainer/Control/HBoxContainer" node_paths=PackedStringArray("window") instance=ExtResource("2_bppmm")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+expand_mode = 1
+script = ExtResource("1_l584d")
+window = NodePath("../../../../../..")
+
+[node name="Spacer" type="Control" parent="area/Control2/VBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="area/Control2/VBoxContainer/Control/HBoxContainer" instance=ExtResource("5_xtwdi")]
+layout_mode = 2
+icon = ExtResource("6_j1vis")
+script = ExtResource("7_h40yg")
+
+[node name="MarginContainer" type="MarginContainer" parent="area/Control2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Control2" parent="area/Control2/VBoxContainer/MarginContainer" instance=ExtResource("7_u3kkb")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="area" node_paths=PackedStringArray("window_to_scale", "L", "R", "T", "B", "TL", "TR", "BL", "BR", "grabber")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = -1
+theme_override_constants/margin_bottom = -1
+script = ExtResource("8_2a3d2")
+window_to_scale = NodePath("../..")
+L = NodePath("MarginContainer/LScaleButton")
+R = NodePath("MarginContainer2/RScaleButton")
+T = NodePath("MarginContainer3/TScaleButton")
+B = NodePath("MarginContainer4/BScaleButton")
+TL = NodePath("TL")
+TR = NodePath("TR")
+BL = NodePath("BL")
+BR = NodePath("BR")
+grabber = NodePath("../MarginContainer2/Grabber")
+
+[node name="MarginContainer" type="MarginContainer" parent="area/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="LScaleButton" type="Button" parent="area/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+button_mask = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="area/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 17
+theme_override_constants/margin_bottom = 3
+
+[node name="RScaleButton" type="Button" parent="area/MarginContainer/MarginContainer2"]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rqsu1")
+action_mode = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="area/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 17
+
+[node name="TScaleButton" type="Button" parent="area/MarginContainer/MarginContainer3"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="area/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 3
+
+[node name="BScaleButton" type="Button" parent="area/MarginContainer/MarginContainer4"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 9
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="TL" type="Button" parent="area/MarginContainer"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_default_cursor_shape = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="TR" type="Button" parent="area/MarginContainer"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 11
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="BL" type="Button" parent="area/MarginContainer"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_default_cursor_shape = 11
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="BR" type="Button" parent="area/MarginContainer"]
+custom_minimum_size = Vector2(3, 3)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_default_cursor_shape = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="area"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 16
+
+[node name="Grabber" type="Button" parent="area/MarginContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0sh26")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dnl7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vyf3d")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eog37")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fivr1")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5njbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usgyr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p3lx6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xtq0e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w6oad")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4cqm5")
+action_mode = 0
+
+[node name="ClickAreaToMoveWindowToTheFrontOfOtherChildrenNoThisIsn\'tAButton" type="Control" parent="area"]
+layout_mode = 2
+mouse_filter = 2
