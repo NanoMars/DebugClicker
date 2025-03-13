@@ -41,7 +41,7 @@ MainWindow=""
 
 [gui]
 
-theme/custom_font="res://Assets/BIOSfontII.ttf"
+theme/custom_font="uid://d0ruubmcg5kmv"
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
 

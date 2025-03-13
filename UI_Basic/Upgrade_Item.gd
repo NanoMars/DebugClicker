@@ -44,6 +44,7 @@ func _on_pressed() -> void:
 		Global.upgrades_owned[upgrade_name] = true
 		get_parent().remove_child(self)
 		owned_container.add_child(self)
+		Global.emit_signal("upgrade_bought", upgrade_name)
 
 func _process(_delta):
 	if Global.upgrades_owned.has(upgrade_name) && Global.upgrades_owned[upgrade_name] == true:

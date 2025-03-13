@@ -24,8 +24,8 @@ func _on_any_close_pressed():
 	emit_signal("either_button_pressed")
 
 func update_crash_timer_interval():
-	var terminal_owned = Global.automations_owned.get("Terminal", 1)
-	var interval = randf_range(10, 20.0)
+	var upgrade_1_owned = Global.flags.get("Terminal_Upgrade_1", false)
+	var interval = randf_range(15 if upgrade_1_owned else 30, 20 if upgrade_1_owned else 40)
 	crash_timer.wait_time = interval
 	crash_timer.start()
 
@@ -50,5 +50,6 @@ func _on_crash_timer_timeout():
 	update_crash_timer_interval()
 
 func _on_reward_timer_timeout():
-	get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2)
+	get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, 2 if Global.flags.get("Terminal_Upgrade_2", false) else 1, 0.3	)
+	# spawn_control_node(global_position + size / 2, num_spawns, burst_duration)
 	update_reward_timer_interval()

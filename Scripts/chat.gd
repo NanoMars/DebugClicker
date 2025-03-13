@@ -43,7 +43,13 @@ func _ready() -> void:
 	send_button.connect("pressed", Callable(self, "_on_send_button_pressed"))
 
 func update_incoming_message_timer_interval() -> void:
-	var interval = randf_range(50.0, 70.0)
+	var interval: float
+	if Global.game_behaviour_flags.get("chat_first_time", true):
+		interval = randf_range(5.0, 7.0)
+		Global.game_behaviour_flags["chat_first_time"] = false
+	else:
+		interval = randf_range(15.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1), 30.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1))
+	
 	incoming_message_timer.wait_time = interval
 	incoming_message_timer.start()
 

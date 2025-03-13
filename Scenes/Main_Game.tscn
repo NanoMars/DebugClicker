@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://cn58jbxxqbu4j"]
+[gd_scene load_steps=50 format=3 uid="uid://cn58jbxxqbu4j"]
 
 [ext_resource type="Texture2D" uid="uid://dssfakba2nidi" path="res://Assets/OldAssets/Wallpaper 1.png" id="1_7nsg8"]
+[ext_resource type="Script" uid="uid://653grv87ffy3" path="res://Scenes/save_window_data.gd" id="2_76tg3"]
 [ext_resource type="PackedScene" uid="uid://bsjokgprqcf5y" path="res://UI_Basic/Widget.tscn" id="2_smwi0"]
 [ext_resource type="PackedScene" uid="uid://cpjrwji61dpst" path="res://Scenes/MoneyCounter.tscn" id="3_vpyqv"]
 [ext_resource type="Script" uid="uid://b2e158attsnfi" path="res://Scripts/GameManager.gd" id="4_rht7d"]
@@ -99,11 +100,13 @@ theme_override_constants/separation = 0
 clip_children = 1
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_76tg3")
 
 [node name="MarginContainer" parent="Game/MainWindow" instance=ExtResource("2_smwi0")]
 layout_mode = 0
 offset_right = 62.0
 offset_bottom = 50.0
+metadata/unique_ID = "Widget.tscn"
 
 [node name="VBoxContainer" parent="Game/MainWindow/MarginContainer" instance=ExtResource("3_vpyqv")]
 layout_mode = 2
@@ -169,7 +172,7 @@ icon = ExtResource("25_eco8d")
 script = ExtResource("18_ym8xi")
 window_scene = ExtResource("19_oc4vn")
 content = ExtResource("26_4gua2")
-window_custom_minumum_size = Vector2(146, 113)
+window_custom_minumum_size = Vector2(148, 113)
 
 [node name="Spacer" type="Control" parent="Game/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
