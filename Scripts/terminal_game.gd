@@ -19,13 +19,21 @@ func _ready():
 	crash_timer.timeout.connect(_on_crash_timer_timeout)
 	update_reward_timer_interval()
 	reward_timer.timeout.connect(_on_reward_timer_timeout)
+	
+		
 
 func _on_any_close_pressed():
 	emit_signal("either_button_pressed")
 
 func update_crash_timer_interval():
+	
 	var upgrade_1_owned = Global.flags.get("Terminal_Upgrade_1", false)
-	var interval = randf_range(15 if upgrade_1_owned else 30, 20 if upgrade_1_owned else 40)
+	var interval: float
+	if Global.game_behaviour_flags.get("Terminal_first_time", true):
+		interval = randf_range(3, 6)
+		Global.game_behaviour_flags["Terminal_first_time"] = false
+	else:
+		interval = randf_range(15 if upgrade_1_owned else 30, 20 if upgrade_1_owned else 40)
 	crash_timer.wait_time = interval
 	crash_timer.start()
 

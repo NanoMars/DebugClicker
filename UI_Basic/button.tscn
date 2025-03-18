@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cs3c02ppdibic"]
+[gd_scene load_steps=9 format=3 uid="uid://cs3c02ppdibic"]
 
 [ext_resource type="StyleBox" uid="uid://c5ex7dqfdc17u" path="res://Styles/Light.tres" id="1_nrrk0"]
 [ext_resource type="StyleBox" uid="uid://be366m0rcsgli" path="res://UI_Basic/Dark.tres" id="2_2p65t"]
 [ext_resource type="StyleBox" uid="uid://c1pk0ysem5jkg" path="res://UI_Basic/Highlight.tres" id="5_t0k3r"]
+[ext_resource type="Script" uid="uid://cf83bsaeu6po6" path="res://UI_Basic/Hover_Cursor.gd" id="5_uknr1"]
 [ext_resource type="StyleBox" uid="uid://dcj8piawieo5f" path="res://UI_Basic/Shadow.tres" id="6_wn687"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf8el"]
@@ -48,3 +49,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_wn687")
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("button")]
+script = ExtResource("5_uknr1")
+cursor = "Hand"
+button = NodePath("..")

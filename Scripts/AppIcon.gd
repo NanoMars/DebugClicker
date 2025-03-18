@@ -12,8 +12,6 @@ func _ready() -> void:
 	connect("pressed", _on_button_pressed)
 	_on_button_pressed()
 
-
-
 func _on_button_pressed() -> void:
 	if window_instance == null:
 		window_instance = window_scene.instantiate()
@@ -29,15 +27,18 @@ func _on_button_pressed() -> void:
 		if settings.has("size") and settings.has("position"):
 				window_instance.size = Vector2(settings["size"]["x"], settings["size"]["y"])
 				window_instance.position = Vector2(settings["position"]["x"], settings["position"]["y"])
-		window_instance.visible = settings.get("visible", false)
+		else:
+			window_instance.custom_minimum_size = window_custom_minumum_size
+			window_instance.position = get_viewport().get_mouse_position() #cursor position
+		window_instance.visible = settings.get("visible", true)
 		window_instance.set_meta("unique_ID", file_name)
-
 
 		var content_instance = content.instantiate()
 		window_instance.add_child(content_instance)
 
-		
-
 		main_window.add_child(window_instance)
+
+	elif window_instance.get_index() != window_instance.get_parent().get_child_count() - 1 and window_instance.visible:
+		window_instance.get_parent().move_child(window_instance, window_instance.get_parent().get_child_count() - 1)
 	else:
 		window_instance.visible = not window_instance.visible

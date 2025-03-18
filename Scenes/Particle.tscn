@@ -1,41 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://duqh6ebvgbnst"]
+[gd_scene load_steps=10 format=3 uid="uid://duqh6ebvgbnst"]
 
-[ext_resource type="Texture2D" uid="uid://c2usy422xoys1" path="res://Assets/OldAssets/Particle.png" id="1_2n36t"]
 [ext_resource type="Script" uid="uid://cp5nfyujwwm7o" path="res://Scripts/particle.gd" id="1_u7oyo"]
+[ext_resource type="Texture2D" uid="uid://d30j1bnqxvl2w" path="res://Assets/ParticleIcon.png" id="3_8rsia"]
+[ext_resource type="Script" uid="uid://dlk5aiaiwo8b8" path="res://Scenes/ParticleFade.gd" id="3_yaxu5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v51ne"]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_mfqrx"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.00811359, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_u6r8q"]
-curve = SubResource("Curve_mfqrx")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_200ud"]
-particle_flag_disable_z = true
-angle_min = 1.07288e-05
-angle_max = 1.07288e-05
-direction = Vector3(0, 1, 0)
-spread = 0.0
-orbit_velocity_min = 9.49949e-08
-orbit_velocity_max = 9.49949e-08
-radial_velocity_min = -2.23517e-05
-radial_velocity_max = -2.23517e-05
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = -2.23517e-06
-radial_accel_min = -2.23517e-06
-radial_accel_max = -2.23517e-06
-tangential_accel_min = -2.23517e-06
-tangential_accel_max = -2.23517e-06
-scale_min = 0.3
-scale_max = 0.3
-alpha_curve = SubResource("CurveTexture_u6r8q")
 
 [sub_resource type="Curve" id="Curve_ts3df"]
 _data = [Vector2(0.559838, 1), 0.0, 0.0, 0, 0, Vector2(0.918864, 0.0322469), -0.0387425, 0.0, 0, 0]
@@ -68,12 +41,11 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = -2.23517e-06
-scale_min = 0.1
-scale_max = 0.3
+scale_min = 0.5
 scale_curve = SubResource("CurveTexture_iex0u")
 alpha_curve = SubResource("CurveTexture_ykpgw")
 
-[node name="Control" type="Control" node_paths=PackedStringArray("particles_ambient", "particles_explode")]
+[node name="Control" type="Control" node_paths=PackedStringArray("sprite_fade", "particles_explode")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,23 +56,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_u7oyo")
-particles_ambient = NodePath("GPUParticles2D")
+sprite_fade = NodePath("Sprite2D")
 particles_explode = NodePath("GPUParticles2D2")
 acceleration_multiplier = 3000.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_v51ne")
-amount = 1
-texture = ExtResource("1_2n36t")
-lifetime = 60.0
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_200ud")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_8rsia")
+script = ExtResource("3_yaxu5")
+fade_duration = 0.25
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_v51ne")
 emitting = false
 amount = 5
-texture = ExtResource("1_2n36t")
+texture = ExtResource("3_8rsia")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0

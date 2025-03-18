@@ -8,11 +8,11 @@ var direction: Vector2 = Vector2(1, 1)
 var speed: float = 0.0
 
 func _ready() -> void:
-	connect("resized", Callable(self, "_on_resized"))
-	button.connect("pressed", Callable(self, "_increase_speed"))
+	connect("resized", _on_resized)
+	button.connect("pressed", _increase_speed)
 
 func _process(delta: float) -> void:
-	speed = max(speed - delta * 10, 0)
+	speed = max(speed - delta * (10 / (Global.flags.get("DVD_Upgrade_1", 0) + 1)), 0)
 	var upgrade_bonus = Global.automations_owned.get("DVD", 0) * 100
 	var effective_max_speed = base_max_speed + Vector2(upgrade_bonus, upgrade_bonus)
 	speed = min(speed, effective_max_speed.x)

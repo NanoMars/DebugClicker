@@ -5,7 +5,7 @@ signal shop_item_bought
 signal upgrade_bought
 signal setting_updated(setting_name: String) 
 
-var money: int = 100000
+var money: int = 500000
 var automations_owned = {}
 var upgrades_owned = {}
 var upgrades_visible = {}

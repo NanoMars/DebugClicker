@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci56h0ahscv1o"]
+[gd_scene load_steps=20 format=3 uid="uid://ci56h0ahscv1o"]
 
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_4eoc7"]
 [ext_resource type="PackedScene" uid="uid://b01r76cf7whyd" path="res://Scenes/Setting.tscn" id="1_kbwyn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2fp1"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="1_yrknh"]
+[ext_resource type="Script" uid="uid://kkf572yraoi2" path="res://Scenes/TabSystem.gd" id="2_74x7w"]
+[ext_resource type="Texture2D" uid="uid://d30j1bnqxvl2w" path="res://Assets/ParticleIcon.png" id="3_ys4a0"]
+[ext_resource type="Texture2D" uid="uid://dqxswjl688oux" path="res://Assets/Paint.png" id="4_eaxjk"]
+[ext_resource type="Script" uid="uid://dvobajmif05ne" path="res://Scenes/WallpaperSwitcher.gd" id="6_ci1r4"]
+[ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="7_ecit4"]
+[ext_resource type="Texture2D" uid="uid://dssfakba2nidi" path="res://Assets/OldAssets/Wallpaper 1.png" id="8_fg815"]
+[ext_resource type="Texture2D" uid="uid://eu6gs0y8qfi0" path="res://Assets/Wallpapers/Wallpaper.png" id="8_i10pe"]
+[ext_resource type="Texture2D" uid="uid://sqx27t4by8yf" path="res://Assets/Wallpapers/Chessboard_yellow.png" id="9_3evef"]
+[ext_resource type="Texture2D" uid="uid://bdd6ffbf3du75" path="res://Assets/Wallpapers/Chessboard_red.png" id="10_a6j4f"]
+[ext_resource type="Texture2D" uid="uid://dfjyt2ogju0ej" path="res://Assets/Check.png" id="10_i10pe"]
+[ext_resource type="Texture2D" uid="uid://cqjeyyjabxrfw" path="res://Assets/Wallpapers/Chessboard_light_pink.png" id="11_32qs0"]
+[ext_resource type="Texture2D" uid="uid://cxsb5bmlmr3vu" path="res://Assets/Wallpapers/Chessboard_light_blue.png" id="12_0nsp6"]
+[ext_resource type="Texture2D" uid="uid://dp1h3v6cue788" path="res://Assets/Wallpapers/Chessboard.png" id="13_g634b"]
+[ext_resource type="Texture2D" uid="uid://ddx65031wti04" path="res://Assets/RightArrow.png" id="16_3evef"]
+[ext_resource type="Texture2D" uid="uid://4qwv54crfsel" path="res://Assets/LeftArrow.png" id="16_a6j4f"]
+[ext_resource type="Script" uid="uid://v7sprcw3gkb2" path="res://UI_Basic/ScrollButton.gd" id="17_a6j4f"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(145, 81)
@@ -14,25 +29,143 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e2fp1")
+theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="Control" parent="VBoxContainer" instance=ExtResource("1_4eoc7")]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control" node_paths=PackedStringArray("tab_contents")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("2_74x7w")
+button_scene = ExtResource("1_yrknh")
+tab_buttons = Array[Texture]([ExtResource("3_ys4a0"), ExtResource("4_eaxjk")])
+tab_contents = [NodePath("../../ScrollContainer"), NodePath("../../ScrollContainer2")]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_kbwyn")]
+[node name="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_kbwyn")]
 layout_mode = 2
 setting = "Particles_Enabled"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer" node_paths=PackedStringArray("wallpaper_switcher", "wallpaper_preview", "apply_button")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("6_ci1r4")
+wallpapers = Array[Texture]([ExtResource("8_i10pe"), ExtResource("9_3evef"), ExtResource("10_a6j4f"), ExtResource("11_32qs0"), ExtResource("12_0nsp6"), ExtResource("13_g634b")])
+wallpaper_switcher = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/ScrollContainer/WallpaperContainer")
+wallpaper_preview = NodePath("VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/TextureRect")
+apply_button = NodePath("VBoxContainer/MarginContainer/VBoxContainer/Apply_Button")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_ecit4")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+texture = ExtResource("8_fg815")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer2" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_ecit4")]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button2" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_yrknh")]
+layout_mode = 2
+icon = ExtResource("16_a6j4f")
+script = ExtResource("17_a6j4f")
+scroll_direction = "left"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="WallpaperContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/MarginContainer/HBoxContainer" instance=ExtResource("1_yrknh")]
+layout_mode = 2
+icon = ExtResource("16_3evef")
+script = ExtResource("17_a6j4f")
+
+[node name="Control" type="Control" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="Apply_Button" parent="VBoxContainer/ScrollContainer2/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_yrknh")]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("10_i10pe")

@@ -6,7 +6,7 @@ var initial_velocity: Vector2 = Vector2.ZERO
 var acceleration_curve: Curve = null
 var air_resistance: float = 0.0
 
-@export var particles_ambient: GPUParticles2D
+@export var sprite_fade: Sprite2D
 @export var particles_explode: GPUParticles2D
 
 @export var acceleration_multiplier: float = 1.0
@@ -34,7 +34,8 @@ func reset(new_start_position: Vector2, new_initial_velocity: Vector2, new_goal_
 	velocity = initial_velocity
 	explosion_triggered = false
 	particles_explode.emitting = false
-	particles_ambient.visible = true
+	sprite_fade.visible = true
+	sprite_fade._start_fade()
 	global_position = start_position
 	
 	clump_count = new_clump_count
@@ -58,7 +59,7 @@ func _process(delta: float) -> void:
 		var goal_rect: Rect2 = Rect2(goal_node.global_position, goal_node.size)
 		if goal_rect.has_point(global_position) and not explosion_triggered:
 			particles_explode.emitting = true
-			particles_ambient.visible = false
+			sprite_fade.visible = false
 			explosion_triggered = true
 			Global.money += clump_count
 	

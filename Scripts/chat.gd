@@ -1,30 +1,25 @@
 extends Control
 
 @export var chat_input: LineEdit
-@export var chat_history_label: Label
+@export var chat_message: PackedScene
+@export var user_blue: Texture
+@export var user_green: Texture
 @export var send_button: Button
+@export var message_container: VBoxContainer
 @export var incoming_message_timer: Timer  
 @export var message_sound_effect: AudioStreamPlayer
-@export var message_send_sound_effect: AudioStreamPlayer 
-@export var notification_icon: VBoxContainer
+@export var message_send_sound_effect: AudioStreamPlayer
 
 var potential_messages = [
-	"hey you busy",  
-	"wanna hang out later",  
-	"what you up to",  
-	"just woke up so tired",  
-	"forgot to text back my bad",  
-	"need to tell you something",  
-	"guess what happened today",  
-	"gonna call you in a bit",  
-	"meet me at the usual spot",  
-	"got some good news",  
-	"come outside im here",  
-	"what time you free",  
-	"cant believe that just happened",  
-	"send me the link",  
-	"lets do something fun",  
-	"you wont believe this",  
+	"hey you busy",
+	"Hellooo",
+	"what you up to",
+	"just woke up so tired",
+	"YIPPEEEE",
+	"come outside im here",
+	"Trans rights",
+	"send me the link",
+	"lets do something fun",
 ]
 
 var target_input_message: String = ""
@@ -34,13 +29,13 @@ func _ready() -> void:
 	randomize()
 	chat_input.editable = false
 	send_button.disabled = true
-	notification_icon.visible = false
-	
+
 	update_incoming_message_timer_interval()
-	incoming_message_timer.connect("timeout", Callable(self, "_on_incoming_message_timer_timeout"))
-	chat_input.connect("text_changed", Callable(self, "_on_chat_input_text_changed"))
-	chat_input.connect("text_submitted", Callable(self, "_on_chat_input_entered"))
-	send_button.connect("pressed", Callable(self, "_on_send_button_pressed"))
+	
+	incoming_message_timer.connect("timeout", _on_incoming_message_timer_timeout)
+	chat_input.connect("text_changed", _on_chat_input_text_changed)
+	chat_input.connect("text_submitted", _on_chat_input_entered)
+	send_button.connect("pressed", _on_send_button_pressed)
 
 func update_incoming_message_timer_interval() -> void:
 	var interval: float
@@ -48,29 +43,40 @@ func update_incoming_message_timer_interval() -> void:
 		interval = randf_range(5.0, 7.0)
 		Global.game_behaviour_flags["chat_first_time"] = false
 	else:
-		interval = randf_range(15.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1), 30.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1))
-	
+		interval = randf_range(
+			15.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1),
+			30.0 / (Global.flags.get("Chat_Upgrade", 0 ) + 1)
+		)
+
 	incoming_message_timer.wait_time = interval
 	incoming_message_timer.start()
 
-func append_to_chat_history(new_line: String) -> void:
-	var lines: Array = []
-	if chat_history_label.text != "":
-		lines = Array(chat_history_label.text.split("\n"))
-	lines.append(new_line)
-	chat_history_label.text = "\n".join(lines)
+func spawn_chat_message(text: String, is_sender: bool) -> void:
+	var msg_instance = chat_message.instantiate()
+	var hbox = msg_instance.get_node("HBoxContainer")
+	var tex_rect = hbox.get_node("TextureRect")
+	var label = hbox.get_node("Label")
+
+	if is_sender:
+		tex_rect.texture = user_blue
+	else:
+		tex_rect.texture = user_green
+	
+	label.text = text
+
+	message_container.add_child(msg_instance)
 
 func _on_incoming_message_timer_timeout() -> void:
 	message_sound_effect.play()
 	var incoming_msg = potential_messages[randi() % potential_messages.size()]
-	append_to_chat_history(incoming_msg)
-	
+
+	spawn_chat_message(incoming_msg, false)
+
 	target_input_message = potential_messages[randi() % potential_messages.size()]
 	chat_input.text = ""
 	chat_input.editable = true
 	send_button.disabled = true
 	chat_input.grab_focus()
-	notification_icon.visible = true  
 
 func _on_chat_input_text_changed(new_text: String) -> void:
 	if updating_text:
@@ -83,7 +89,7 @@ func _on_chat_input_text_changed(new_text: String) -> void:
 	updating_text = true
 	chat_input.text = target_input_message.substr(0, length)
 	updating_text = false
-	
+
 	if target_input_message == "" or chat_input.text.length() < target_input_message.length():
 		send_button.disabled = true
 	else:
@@ -95,19 +101,20 @@ func _on_chat_input_entered(_new_text: String) -> void:
 func _on_send_button_pressed() -> void:
 	if chat_input.text == target_input_message and target_input_message != "":
 		message_send_sound_effect.play()
-		append_to_chat_history(chat_input.text)
+
+		spawn_chat_message(chat_input.text, true)
+
 		var chat_owned = Global.automations_owned.get("Chat", 1)
 		var base_spawns = 150
 		var num_spawns = base_spawns * chat_owned 
-		
 		var burst_duration = 1.0
-		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, num_spawns, burst_duration)
+		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager") \
+			.spawn_control_node(global_position + size / 2, num_spawns, burst_duration)
 		
 		chat_input.editable = false
 		send_button.disabled = true
 		target_input_message = ""
 		chat_input.text = ""
-		notification_icon.visible = false 
 		
 		update_incoming_message_timer_interval()
 	else:

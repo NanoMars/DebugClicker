@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://da6n4ps2ngf6j"]
+[gd_scene load_steps=14 format=3 uid="uid://da6n4ps2ngf6j"]
 
 [ext_resource type="Script" uid="uid://2x6148vcsfiq" path="res://Scripts/chat.gd" id="1_lnuvd"]
 [ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="4_esorl"]
+[ext_resource type="PackedScene" uid="uid://b4csvi2xl1u0b" path="res://Scenes/ChatMessage.tscn" id="5_fbgu3"]
 [ext_resource type="Texture2D" uid="uid://pcmcgben65k2" path="res://Assets/user_blue.png" id="5_gutgd"]
 [ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="5_wlfbx"]
 [ext_resource type="Texture2D" uid="uid://b4dp6q5ruk4qs" path="res://Assets/user_green.png" id="6_885k0"]
@@ -19,24 +20,24 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhh7j"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="Control" type="Control" node_paths=PackedStringArray("chat_input", "chat_history_label", "send_button", "incoming_message_timer", "message_sound_effect", "message_send_sound_effect", "notification_icon")]
+[node name="Control" type="Control" node_paths=PackedStringArray("chat_input", "send_button", "message_container", "incoming_message_timer", "message_sound_effect", "message_send_sound_effect")]
 custom_minimum_size = Vector2(1.06, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -211.0
-offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lnuvd")
 chat_input = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Control/MarginContainer/LineEdit")
-chat_history_label = NodePath("VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/Control/Label")
+chat_message = ExtResource("5_fbgu3")
+user_blue = ExtResource("5_gutgd")
+user_green = ExtResource("6_885k0")
 send_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/Button")
+message_container = NodePath("VBoxContainer/MarginContainer2/Control/MarginContainer/Control/VBoxContainer")
 incoming_message_timer = NodePath("Timer")
 message_sound_effect = NodePath("AudioStreamPlayer")
 message_send_sound_effect = NodePath("AudioStreamPlayer2")
-notification_icon = NodePath("VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -92,48 +93,19 @@ theme_override_constants/margin_bottom = 1
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/Control/MarginContainer"]
-clip_children = 1
-clip_contents = true
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer2/Control/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
+size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("5_gutgd")
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("6_885k0")
-
-[node name="Control" type="Control" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/HBoxContainer/Control"]
-clip_contents = true
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/Control/MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-grow_horizontal = 2
+offset_top = -10.0
+offset_right = 45.0
 grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_84ge8")
-theme_override_font_sizes/font_size = 8
-clip_text = true
-text_overrun_behavior = 1
+theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

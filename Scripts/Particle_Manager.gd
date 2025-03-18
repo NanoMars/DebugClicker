@@ -8,10 +8,12 @@ extends Control
 @export var clump_interval: float = 1.0
 
 var particle_pool: Array = []
-var particles_enabled: bool = Global.settings.get("Particles_Enabled", true)
+var particles_enabled: bool = true
 
 func _ready() -> void:
 	Global.setting_updated.connect(_on_setting_updated)
+	particles_enabled = Global.settings.get("Particles_Enabled", true)
+	visible = true
 	
 func _on_setting_updated(setting_name: String) -> void:
 	if setting_name == "Particles_Enabled":

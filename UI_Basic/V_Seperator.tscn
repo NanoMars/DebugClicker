@@ -8,6 +8,7 @@ border_width_bottom = 1
 border_color = Color(0.388235, 0.388235, 0.388235, 1)
 
 [node name="Control" type="Control"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

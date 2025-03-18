@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4csvi2xl1u0b"]
+
+[ext_resource type="Texture2D" uid="uid://b4dp6q5ruk4qs" path="res://Assets/user_green.png" id="1_lrmvg"]
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="2_lrmvg"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_lrmvg")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lrmvg")
+theme_override_font_sizes/font_size = 8
+text = "asdf"

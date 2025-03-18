@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://cn58jbxxqbu4j"]
+[gd_scene load_steps=51 format=3 uid="uid://cn58jbxxqbu4j"]
 
-[ext_resource type="Texture2D" uid="uid://dssfakba2nidi" path="res://Assets/OldAssets/Wallpaper 1.png" id="1_7nsg8"]
+[ext_resource type="Texture2D" uid="uid://eu6gs0y8qfi0" path="res://Assets/Wallpapers/Wallpaper.png" id="1_g8d6c"]
 [ext_resource type="Script" uid="uid://653grv87ffy3" path="res://Scenes/save_window_data.gd" id="2_76tg3"]
+[ext_resource type="Script" uid="uid://w5e5e8qi7mjk" path="res://Scenes/wallpaper.gd" id="2_g8d6c"]
 [ext_resource type="PackedScene" uid="uid://bsjokgprqcf5y" path="res://UI_Basic/Widget.tscn" id="2_smwi0"]
 [ext_resource type="PackedScene" uid="uid://cpjrwji61dpst" path="res://Scenes/MoneyCounter.tscn" id="3_vpyqv"]
 [ext_resource type="Script" uid="uid://b2e158attsnfi" path="res://Scripts/GameManager.gd" id="4_rht7d"]
@@ -83,9 +84,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7nsg8")
+texture = ExtResource("1_g8d6c")
 expand_mode = 5
 stretch_mode = 6
+script = ExtResource("2_g8d6c")
 
 [node name="Game" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -163,6 +165,7 @@ icon = ExtResource("23_ulnjw")
 script = ExtResource("18_ym8xi")
 window_scene = ExtResource("19_oc4vn")
 content = ExtResource("24_wrc26")
+window_custom_minumum_size = Vector2(170, 183)
 
 [node name="Button4" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("17_bnx5y")]
 layout_mode = 2
@@ -232,6 +235,7 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
 [node name="ParticleManager" type="Control" parent="." node_paths=PackedStringArray("goal_node")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

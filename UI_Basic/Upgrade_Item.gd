@@ -6,6 +6,7 @@ extends Button
 @export var flag_name: String
 @export var upgrade_name: String
 @export var upgrade_level: int = 1
+@export var automation_name: String
 
 @export_enum("Bool", "Int") var flag_type: String 
 
@@ -51,7 +52,7 @@ func _process(_delta):
 		disabled = true
 		visible = true
 		return
-	if Global.money >= price / 2:
+	if Global.money >= float(price) / 2.0 && Global.automations_owned.get(automation_name, 0) >= 1:
 		Global.upgrades_visible[upgrade_name] = true
 		visible = true
 
