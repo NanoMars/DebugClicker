@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://v266gbtdkfuu"]
+[gd_scene load_steps=11 format=3 uid="uid://v266gbtdkfuu"]
 
 [ext_resource type="StyleBox" uid="uid://c5ex7dqfdc17u" path="res://Styles/Light.tres" id="1_v55vo"]
 [ext_resource type="StyleBox" uid="uid://be366m0rcsgli" path="res://UI_Basic/Dark.tres" id="2_cdhar"]
 [ext_resource type="Script" uid="uid://1hmucmtnq6c1" path="res://Scenes/shop_item.gd" id="3_jxq6w"]
 [ext_resource type="FontFile" uid="uid://81fd5aw0u0e8" path="res://Assets/Fonts/Pixolletta10px.ttf" id="4_4100k"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="5_4100k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w818x"]
 
@@ -110,3 +111,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "12345"
 vertical_alignment = 2
+
+[node name="Node" parent="." instance=ExtResource("5_4100k")]
+cursor = "Money"

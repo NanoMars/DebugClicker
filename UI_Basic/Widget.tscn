@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bsjokgprqcf5y"]
+[gd_scene load_steps=16 format=3 uid="uid://bsjokgprqcf5y"]
 
 [ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_4hxys"]
 [ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="2_0uoaj"]
 [ext_resource type="Script" uid="uid://yc0e31815owi" path="res://Scripts/Widget.gd" id="3_n5ikp"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="4_0uoaj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjha6"]
 
@@ -80,3 +81,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_e8dv2")
 action_mode = 0
 script = ExtResource("3_n5ikp")
 widget = NodePath("../..")
+
+[node name="Node" parent="MarginContainer/Button" instance=ExtResource("4_0uoaj")]
+cursor = "Universal"

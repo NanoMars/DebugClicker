@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b01r76cf7whyd"]
+[gd_scene load_steps=6 format=3 uid="uid://b01r76cf7whyd"]
 
 [ext_resource type="Texture2D" uid="uid://c2usy422xoys1" path="res://Assets/OldAssets/Particle.png" id="1_4v67x"]
 [ext_resource type="Script" uid="uid://cjsjk0p5qwlfj" path="res://Scripts/setting.gd" id="1_qke6w"]
 [ext_resource type="Texture2D" uid="uid://btvda22de183e" path="res://Assets/Switch1.png" id="3_v6w4y"]
 [ext_resource type="Texture2D" uid="uid://cle50t7xwpugl" path="res://Assets/Switch2.png" id="4_iay5r"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="5_iay5r"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
@@ -27,3 +28,5 @@ layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("3_v6w4y")
 texture_pressed = ExtResource("4_iay5r")
+
+[node name="Node" parent="TextureButton" instance=ExtResource("5_iay5r")]

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@onready var cursor_image = $CursorImage
+@onready var cursor_container = $CursorContainer
+@onready var cursor_image = $CursorContainer/CursorImage
 
 @export var cursor_shapes: Dictionary[String, Texture] = {}
 @export var cursor_default: String = "Default"
@@ -11,7 +12,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(_delta):
-	cursor_image.global_position = get_viewport().get_mouse_position()
+	cursor_container.global_position = get_viewport().get_mouse_position()
 	var active_cursor = null
 
 	var keys = cursor_buffer.keys()

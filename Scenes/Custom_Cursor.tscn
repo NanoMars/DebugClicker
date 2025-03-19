@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://fghu8qc1yho4" path="res://CustomCursor.gd" id="1_332mj"]
 [ext_resource type="Texture2D" uid="uid://dl06g6340v4lp" path="res://Assets/Cursors/Cursor_Default.png" id="2_v82sd"]
 [ext_resource type="Texture2D" uid="uid://brmfyso1jufv7" path="res://Assets/Cursors/Cursor_Hand.png" id="3_4en2p"]
-[ext_resource type="Texture2D" uid="uid://cyg3mamuvhh1r" path="res://Assets/Cursors/Cursor_Diagonal_1_Direction.png" id="4_lkf42"]
-[ext_resource type="Texture2D" uid="uid://q47cyhvee8kv" path="res://Assets/Cursors/Cursor_Diagonal_2_Direction.png" id="5_7o81l"]
+[ext_resource type="Texture2D" uid="uid://cyg3mamuvhh1r" path="res://Assets/Cursors/Cursor_Diagonal_2_Direction.png" id="4_lkf42"]
+[ext_resource type="Texture2D" uid="uid://q47cyhvee8kv" path="res://Assets/Cursors/Cursor_Diagonal_1_Direction.png" id="5_7o81l"]
 [ext_resource type="Texture2D" uid="uid://cnifdyu5ujoty" path="res://Assets/Cursors/Cursor_Horizontal_Direction.png" id="6_gvlo5"]
 [ext_resource type="Texture2D" uid="uid://cgfc20ynpii17" path="res://Assets/Cursors/Cursor_Vertical_Direction.png" id="7_qc63f"]
 [ext_resource type="Texture2D" uid="uid://d1turo8fo6m4k" path="res://Assets/Cursors/Cursor_Universal_Direction.png" id="8_su7du"]
@@ -17,8 +17,8 @@ script = ExtResource("1_332mj")
 cursor_shapes = Dictionary[String, Texture]({
 "Cross": ExtResource("10_oc1ut"),
 "Default": ExtResource("2_v82sd"),
-"Diagonal 1": ExtResource("4_lkf42"),
-"Diagonal 2": ExtResource("5_7o81l"),
+"Diagonal 1": ExtResource("5_7o81l"),
+"Diagonal 2": ExtResource("4_lkf42"),
 "Hand": ExtResource("3_4en2p"),
 "Horizontal": ExtResource("6_gvlo5"),
 "Money": ExtResource("9_3d7y2"),
@@ -26,10 +26,17 @@ cursor_shapes = Dictionary[String, Texture]({
 "Vertical": ExtResource("7_qc63f")
 })
 
-[node name="CursorImage" type="TextureRect" parent="."]
-offset_right = 11.0
-offset_bottom = 17.0
+[node name="CursorContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = -15
+theme_override_constants/margin_top = -15
+
+[node name="CursorImage" type="TextureRect" parent="CursorContainer"]
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 texture = ExtResource("2_v82sd")
 stretch_mode = 2

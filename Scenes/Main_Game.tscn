@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cn58jbxxqbu4j"]
+[gd_scene load_steps=52 format=3 uid="uid://cn58jbxxqbu4j"]
 
 [ext_resource type="Texture2D" uid="uid://eu6gs0y8qfi0" path="res://Assets/Wallpapers/Wallpaper.png" id="1_g8d6c"]
 [ext_resource type="Script" uid="uid://653grv87ffy3" path="res://Scenes/save_window_data.gd" id="2_76tg3"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="30_po8i8"]
 [ext_resource type="Script" uid="uid://bct1tlse4jmel" path="res://Scripts/Clock.gd" id="31_pmoa4"]
 [ext_resource type="PackedScene" uid="uid://b58gwifdqjfvw" path="res://Scenes/StartMenu.tscn" id="32_osgqc"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="33_56gb8"]
 [ext_resource type="Script" uid="uid://beyu73siy1bwj" path="res://Scripts/Particle_Manager.gd" id="33_r2u62"]
 [ext_resource type="PackedScene" uid="uid://duqh6ebvgbnst" path="res://Scenes/Particle.tscn" id="34_iafbs"]
 
@@ -204,6 +205,8 @@ offset_left = -21.0
 offset_top = -90.0
 offset_right = 21.0
 offset_bottom = -18.0
+
+[node name="Node" parent="Game/PanelContainer/MarginContainer/HBoxContainer/Button3" instance=ExtResource("33_56gb8")]
 
 [node name="Control2" parent="Game/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("30_po8i8")]
 layout_mode = 2

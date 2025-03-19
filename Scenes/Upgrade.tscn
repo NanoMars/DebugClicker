@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://rmjs3oogvhia"]
+[gd_scene load_steps=15 format=3 uid="uid://rmjs3oogvhia"]
 
 [ext_resource type="StyleBox" uid="uid://be366m0rcsgli" path="res://UI_Basic/Dark.tres" id="1_pt5ib"]
 [ext_resource type="StyleBox" uid="uid://c5ex7dqfdc17u" path="res://Styles/Light.tres" id="2_q44um"]
 [ext_resource type="StyleBox" uid="uid://c1pk0ysem5jkg" path="res://UI_Basic/Highlight.tres" id="3_cj77a"]
 [ext_resource type="Script" uid="uid://4uwvyp68w52b" path="res://UI_Basic/Upgrade_Item.gd" id="3_q44um"]
 [ext_resource type="StyleBox" uid="uid://dcj8piawieo5f" path="res://UI_Basic/Shadow.tres" id="4_02w2n"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="4_wk5g7"]
 [ext_resource type="FontFile" uid="uid://fgnx086ovxiy" path="res://Assets/Fonts/3x5 Pixel Numbers.otf" id="5_i4t4o"]
 [ext_resource type="Script" uid="uid://5t1ofh57v6qg" path="res://Scenes/Tooltip.gd" id="7_cj77a"]
 [ext_resource type="Texture2D" uid="uid://bckar0rffek3l" path="res://Assets/Production.png" id="8_i4t4o"]
@@ -44,6 +45,9 @@ expand_icon = true
 script = ExtResource("3_q44um")
 description_icon_reference = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect")
 description_text_reference = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label")
+
+[node name="Node" parent="." instance=ExtResource("4_wk5g7")]
+cursor = "Money"
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1

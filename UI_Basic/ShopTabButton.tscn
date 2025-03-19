@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx01rsgj3kteh"]
+[gd_scene load_steps=10 format=3 uid="uid://cx01rsgj3kteh"]
 
 [ext_resource type="StyleBox" uid="uid://be366m0rcsgli" path="res://UI_Basic/Dark.tres" id="1_v8aoi"]
 [ext_resource type="StyleBox" uid="uid://c5ex7dqfdc17u" path="res://Styles/Light.tres" id="2_rv0gk"]
 [ext_resource type="StyleBox" uid="uid://c1pk0ysem5jkg" path="res://UI_Basic/Highlight.tres" id="3_8p55w"]
 [ext_resource type="StyleBox" uid="uid://dcj8piawieo5f" path="res://UI_Basic/Shadow.tres" id="4_8tlx5"]
 [ext_resource type="FontFile" uid="uid://fgnx086ovxiy" path="res://Assets/Fonts/3x5 Pixel Numbers.otf" id="5_rv0gk"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="6_8p55w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf8el"]
 
@@ -73,3 +74,5 @@ theme_override_fonts/font = ExtResource("5_rv0gk")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Node" parent="." instance=ExtResource("6_8p55w")]

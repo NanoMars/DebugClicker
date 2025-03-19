@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://v87deiqgd2qm"]
+
+[ext_resource type="Script" uid="uid://cf83bsaeu6po6" path="res://UI_Basic/Hover_Cursor.gd" id="1_8mcg5"]
+
+[node name="Node" type="Node" node_paths=PackedStringArray("button")]
+script = ExtResource("1_8mcg5")
+cursor = "Hand"
+button = NodePath("")
