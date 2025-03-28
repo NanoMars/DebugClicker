@@ -75,4 +75,5 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Node" parent="." instance=ExtResource("6_8p55w")]
+[node name="Node" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_8p55w")]
+button = NodePath("..")

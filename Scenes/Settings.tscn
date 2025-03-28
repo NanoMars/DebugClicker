@@ -56,7 +56,6 @@ tab_buttons = Array[Texture]([ExtResource("3_ys4a0"), ExtResource("4_eaxjk")])
 tab_contents = [NodePath("../../ScrollContainer"), NodePath("../../ScrollContainer2")]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -78,8 +77,10 @@ layout_mode = 2
 [node name="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_kbwyn")]
 layout_mode = 2
 setting = "Particles_Enabled"
+default = true
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer" node_paths=PackedStringArray("wallpaper_switcher", "wallpaper_preview", "apply_button")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_ci1r4")

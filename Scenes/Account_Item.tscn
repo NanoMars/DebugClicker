@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtqwahxp0pppx"]
+
+[ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="1_sgcpt"]
+[ext_resource type="Texture2D" uid="uid://5luvvgaeqmkw" path="res://Assets/User_Grey.png" id="2_uhhxl"]
+[ext_resource type="Script" uid="uid://dowqulv76ru05" path="res://Scenes/account_item.gd" id="2_ydbl8"]
+[ext_resource type="Texture2D" uid="uid://crykfq4ppn53r" path="res://Assets/Cross10px.png" id="4_0ki5y"]
+[ext_resource type="FontFile" uid="uid://81fd5aw0u0e8" path="res://Assets/Fonts/Pixolletta10px.ttf" id="4_uhhxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhhxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydbl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ki5y"]
+
+[node name="Button" node_paths=PackedStringArray("x_button", "name_line_edit") instance=ExtResource("1_sgcpt")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("2_ydbl8")
+x_button = NodePath("HBoxContainer/MarginContainer/Button")
+name_line_edit = NodePath("HBoxContainer/LineEdit")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_uhhxl")
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer" index="1"]
+layout_mode = 2
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhhxl")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uhhxl")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ydbl8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ki5y")
+text = "Save 1fasdfadf"
+expand_to_text_length = true
+
+[node name="Control" type="Control" parent="HBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" index="3"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" parent="HBoxContainer/MarginContainer" index="0" instance=ExtResource("1_sgcpt")]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+icon = ExtResource("4_0ki5y")

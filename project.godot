@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Debug Clicker"
-run/main_scene="uid://cn58jbxxqbu4j"
+run/main_scene="uid://txo83mls1rst"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

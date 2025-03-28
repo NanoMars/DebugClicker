@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cxa7l3q4y5av0"]
+[gd_scene load_steps=2 format=3 uid="uid://cxa7l3q4y5av0"]
+
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="1_wtvtg"]
 
 [node name="Button" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -31,7 +33,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("1_wtvtg")
+theme_override_font_sizes/font_size = 8
 text = "wawawawaw"
 vertical_alignment = 1
 

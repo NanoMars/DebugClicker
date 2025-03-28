@@ -50,4 +50,5 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("6_wn687")
 
-[node name="Node" parent="." instance=ExtResource("5_uknr1")]
+[node name="Node" parent="." node_paths=PackedStringArray("button") instance=ExtResource("5_uknr1")]
+button = NodePath("..")

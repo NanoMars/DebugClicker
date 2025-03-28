@@ -5,12 +5,10 @@ extends HBoxContainer
 @onready var switch: TextureButton = $TextureButton
 
 func _ready() -> void:
-	if setting in Global.settings:
-		switch.button_pressed = Global.settings[setting]
-	else:
+	if not setting in Global.settings:
 		Global.settings[setting] = default
-	print(Global.settings)
 
+	switch.button_pressed = Global.settings[setting]
 	switch.toggled.connect(_on_check_button_toggled)
 
 func _on_check_button_toggled(button_pressed: bool) -> void:

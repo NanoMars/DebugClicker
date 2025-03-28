@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mf7ve6ea3cxr"]
+[gd_scene load_steps=15 format=3 uid="uid://mf7ve6ea3cxr"]
 
 [ext_resource type="Script" uid="uid://fghu8qc1yho4" path="res://CustomCursor.gd" id="1_332mj"]
 [ext_resource type="Texture2D" uid="uid://dl06g6340v4lp" path="res://Assets/Cursors/Cursor_Default.png" id="2_v82sd"]
@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://d1turo8fo6m4k" path="res://Assets/Cursors/Cursor_Universal_Direction.png" id="8_su7du"]
 [ext_resource type="Texture2D" uid="uid://rlk0pupf7hho" path="res://Assets/Cursors/Cursor_Money.png" id="9_3d7y2"]
 [ext_resource type="Texture2D" uid="uid://dhi0m13rg5eh6" path="res://Assets/Cursors/Cursor_Cross.png" id="10_oc1ut"]
+[ext_resource type="Script" uid="uid://c0oje81hs0tpx" path="res://Scenes/click_sound_manager.gd" id="11_gvlo5"]
+[ext_resource type="AudioStream" uid="uid://b1daa5a3enqwj" path="res://Assets/Sound/mouseclick.wav" id="12_gvlo5"]
+[ext_resource type="AudioStream" uid="uid://b1xnkqrg5auhg" path="res://Assets/Sound/mouserelease.wav" id="13_qc63f"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4en2p"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 128
@@ -20,11 +25,17 @@ cursor_shapes = Dictionary[String, Texture]({
 "Diagonal 1": ExtResource("5_7o81l"),
 "Diagonal 2": ExtResource("4_lkf42"),
 "Hand": ExtResource("3_4en2p"),
+"Hidden": SubResource("CompressedTexture2D_4en2p"),
 "Horizontal": ExtResource("6_gvlo5"),
 "Money": ExtResource("9_3d7y2"),
 "Universal": ExtResource("8_su7du"),
 "Vertical": ExtResource("7_qc63f")
 })
+
+[node name="ClickSoundManager" type="Node" parent="." node_paths=PackedStringArray("click_down_sound", "click_up_sound")]
+script = ExtResource("11_gvlo5")
+click_down_sound = NodePath("../AudioStreamPlayer")
+click_up_sound = NodePath("../AudioStreamPlayer2")
 
 [node name="CursorContainer" type="MarginContainer" parent="."]
 offset_right = 40.0
@@ -38,5 +49,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_v82sd")
 stretch_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_gvlo5")
+volume_db = -27.0
+pitch_scale = 0.7
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qc63f")
+volume_db = -27.0
+pitch_scale = 0.7

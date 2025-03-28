@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddhdej6rlccke"]
+[gd_scene load_steps=29 format=3 uid="uid://ddhdej6rlccke"]
 
 [ext_resource type="Script" uid="uid://bobuhpcwbk8er" path="res://Scripts/ShopHandler.gd" id="1_2pg0a"]
 [ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_db8k6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cknco08lnu7wu" path="res://Assets/Shopping_Cart.png" id="4_gufdo"]
 [ext_resource type="Texture2D" uid="uid://dbn10c7h44nn0" path="res://Assets/Upgrade.png" id="5_ox0pj"]
 [ext_resource type="Script" uid="uid://dxkh7i1lh1y0u" path="res://Scripts/UpgradeAvailabilityCounter.gd" id="6_3ro81"]
+[ext_resource type="Theme" uid="uid://bkrg2b07k1vm1" path="res://Styles/ScrollContainer.tres" id="7_y7ov5"]
 [ext_resource type="Texture2D" uid="uid://cwny65t7ekv5y" path="res://Assets/Clicker_Shop_Icon.png" id="10_d5t61"]
 [ext_resource type="Texture2D" uid="uid://ut5d7hdqd4di" path="res://Assets/Terminal_Shop_Icon.png" id="11_y7ov5"]
 [ext_resource type="Texture2D" uid="uid://cs51dkb0pgaed" path="res://Assets/MessagerIcon.png" id="12_6tx2d"]
@@ -60,6 +61,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control" node_paths=PackedStringArray("shop_item_to_hide")]
+visible = false
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 1
 anchors_preset = 15
@@ -69,6 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("7_y7ov5")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_m1c0q")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6epge")
 horizontal_scroll_mode = 0
@@ -118,13 +121,13 @@ metadata/Name = "Task Manager"
 metadata/Image = ExtResource("15_d5t61")
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_y7ov5")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer2"]
 layout_mode = 2

@@ -5,11 +5,14 @@ extends Control
 @export var button: Button
 
 var direction: Vector2 = Vector2(1, 1)
-var speed: float = 0.0
+var speed: float
 
 func _ready() -> void:
 	connect("resized", _on_resized)
 	button.connect("pressed", _increase_speed)
+	speed = 30 if Global.game_behaviour_flags.get("DVD", true) else 0
+	Global.game_behaviour_flags["DVD"] = false
+		
 
 func _process(delta: float) -> void:
 	speed = max(speed - delta * (10 / (Global.flags.get("DVD_Upgrade_1", 0) + 1)), 0)

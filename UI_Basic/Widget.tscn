@@ -82,5 +82,6 @@ action_mode = 0
 script = ExtResource("3_n5ikp")
 widget = NodePath("../..")
 
-[node name="Node" parent="MarginContainer/Button" instance=ExtResource("4_0uoaj")]
+[node name="Node" parent="MarginContainer/Button" node_paths=PackedStringArray("button") instance=ExtResource("4_0uoaj")]
 cursor = "Universal"
+button = NodePath("..")

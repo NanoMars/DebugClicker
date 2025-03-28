@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbqajsnmxu2cw" path="res://Scripts/task_manager.gd" id="1_6suoa"]
 [ext_resource type="PackedScene" uid="uid://cxa7l3q4y5av0" path="res://Minigames/TaskManager Task.tscn" id="1_uncxg"]
 [ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="3_phrgm"]
-[ext_resource type="FontFile" uid="uid://81fd5aw0u0e8" path="res://Assets/Fonts/Pixolletta10px.ttf" id="4_o8ffk"]
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="4_phrgm"]
 [ext_resource type="PackedScene" uid="uid://cuypar36shqmm" path="res://UI_Basic/div.tscn" id="5_n6jvp"]
 [ext_resource type="PackedScene" uid="uid://b2alc63crc160" path="res://UI_Basic/Rectangle_inverse.tscn" id="6_7n6yw"]
 [ext_resource type="PackedScene" uid="uid://cs3c02ppdibic" path="res://UI_Basic/button.tscn" id="7_g634s"]
@@ -60,9 +60,10 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+size_flags_stretch_ratio = 1.08
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_o8ffk")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("4_phrgm")
+theme_override_font_sizes/font_size = 8
 text = "asdfghjk"
 horizontal_alignment = 1
 
@@ -74,8 +75,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_o8ffk")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("4_phrgm")
+theme_override_font_sizes/font_size = 8
 text = "asdfghjk"
 horizontal_alignment = 1
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qq8fuiosbye7"]
+[gd_scene load_steps=9 format=3 uid="uid://qq8fuiosbye7"]
 
 [ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_7c1ds"]
 [ext_resource type="Texture2D" uid="uid://c7mva2hqcdwws" path="res://Assets/VolumeIndicator.png" id="2_cgr4m"]
 [ext_resource type="Texture2D" uid="uid://kdqp7d0p01xw" path="res://Assets/Grabber.png" id="2_v55d6"]
 [ext_resource type="Script" uid="uid://cpoqhnilhf7bn" path="res://Scripts/Volume_Slider.gd" id="4_vbwsi"]
+[ext_resource type="PackedScene" uid="uid://v87deiqgd2qm" path="res://UI_Basic/HoverSet.tscn" id="5_qvqi2"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_s3kui"]
 grow_begin = -3.0
@@ -73,3 +74,6 @@ theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_jw7j0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_kjb3f")
 value = 50.0
 script = ExtResource("4_vbwsi")
+
+[node name="Node" parent="Control/MarginContainer/HBoxContainer/MarginContainer/VSlider" node_paths=PackedStringArray("button") instance=ExtResource("5_qvqi2")]
+button = NodePath("..")

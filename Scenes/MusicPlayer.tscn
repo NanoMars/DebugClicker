@@ -1,0 +1,179 @@
+[gd_scene load_steps=33 format=3 uid="uid://ik0xa0007272"]
+
+[ext_resource type="Script" uid="uid://bjqixi6qrvf4g" path="res://MusicPlayer.gd" id="1_frlje"]
+[ext_resource type="FontFile" uid="uid://46lkmrpif0e6" path="res://Assets/Fonts/Terminal Font.ttf" id="2_6si1h"]
+[ext_resource type="Texture2D" uid="uid://dfrkns62asxpd" path="res://Assets/Horizontal_Grabber.png" id="3_2wsvv"]
+[ext_resource type="Texture2D" uid="uid://bbssu1weyncj" path="res://Assets/Pause.png" id="3_uc6f4"]
+[ext_resource type="AudioStream" uid="uid://dq0es7w2iwgms" path="res://Assets/Music/Whispering Woods.wav" id="4_3nce6"]
+[ext_resource type="AudioStream" uid="uid://bu16sypb65kq3" path="res://Assets/Music/Golden Gleam.wav" id="4_nmax7"]
+[ext_resource type="Texture2D" uid="uid://1dyfa22ks04j" path="res://Assets/Skip_left.png" id="4_uc6f4"]
+[ext_resource type="AudioStream" uid="uid://b1ur7oc7ss30c" path="res://Assets/Music/Wanderer's Tale.wav" id="5_ijx2i"]
+[ext_resource type="Texture2D" uid="uid://by4ukyjq1a1da" path="res://Assets/Play.png" id="5_nmax7"]
+[ext_resource type="AudioStream" uid="uid://cov1i04hsrs14" path="res://Assets/Music/Evening Harmony.wav" id="6_flk32"]
+[ext_resource type="Texture2D" uid="uid://cdxdll8tjem7j" path="res://Assets/Skip.png" id="6_ih1yh"]
+[ext_resource type="AudioStream" uid="uid://uw3htn13b1sf" path="res://Assets/Music/Floating Dream.wav" id="7_h46sx"]
+[ext_resource type="AudioStream" uid="uid://cyttxfwcj4dqb" path="res://Assets/Music/Gentle Breeze.wav" id="8_aoja5"]
+[ext_resource type="AudioStream" uid="uid://cyh32ngm2oh1n" path="res://Assets/Music/Cuddle Clouds.wav" id="9_glv74"]
+[ext_resource type="AudioStream" uid="uid://d387bnels6xmb" path="res://Assets/Music/Polar Lights.wav" id="10_trx3n"]
+[ext_resource type="Script" uid="uid://cf83bsaeu6po6" path="res://UI_Basic/Hover_Cursor.gd" id="15_ijx2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiv3q"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yngl5"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tdl4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nce6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijx2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flk32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h46sx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aoja5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glv74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trx3n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1aot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jm7r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iel3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqhbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1mdg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ueny"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("audio_player", "song_name_label", "progress_bar", "progress_slider", "play_pause_button", "next_button", "previous_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frlje")
+audio_player = NodePath("AudioStreamPlayer")
+song_name_label = NodePath("VBoxContainer/Label")
+progress_bar = NodePath("VBoxContainer/MarginContainer/ProgressBar")
+progress_slider = NodePath("VBoxContainer/MarginContainer/HSlider")
+play_pause_button = NodePath("VBoxContainer/HBoxContainer/Button2")
+play_icon = ExtResource("5_nmax7")
+pause_icon = ExtResource("3_uc6f4")
+next_button = NodePath("VBoxContainer/HBoxContainer/Button3")
+previous_button = NodePath("VBoxContainer/HBoxContainer/Button")
+song_list = Array[AudioStream]([ExtResource("4_3nce6"), ExtResource("5_ijx2i"), ExtResource("6_flk32"), ExtResource("7_h46sx"), ExtResource("8_aoja5"), ExtResource("9_glv74"), ExtResource("10_trx3n"), ExtResource("4_nmax7")])
+first_song = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6si1h")
+theme_override_font_sizes/font_size = 8
+text = "Song name - ASDF"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_hiv3q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yngl5")
+show_percentage = false
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("3_2wsvv")
+theme_override_icons/grabber_highlight = ExtResource("3_2wsvv")
+theme_override_icons/grabber_disabled = ExtResource("3_2wsvv")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_7tdl4")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_3nce6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_ijx2i")
+step = 0.01
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("button")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flk32")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_h46sx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aoja5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_glv74")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trx3n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_b1aot")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4jm7r")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iel3m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dqhbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c1mdg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ueny")
+icon = ExtResource("4_uc6f4")
+script = ExtResource("15_ijx2i")
+cursor = "Hand"
+button = NodePath(".")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("button")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flk32")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_h46sx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aoja5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_glv74")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trx3n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_b1aot")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4jm7r")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iel3m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dqhbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c1mdg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ueny")
+icon = ExtResource("5_nmax7")
+script = ExtResource("15_ijx2i")
+cursor = "Hand"
+button = NodePath(".")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer" node_paths=PackedStringArray("button")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flk32")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_h46sx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aoja5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_glv74")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_trx3n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_b1aot")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4jm7r")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_iel3m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dqhbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_c1mdg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ueny")
+icon = ExtResource("6_ih1yh")
+script = ExtResource("15_ijx2i")
+cursor = "Hand"
+button = NodePath(".")

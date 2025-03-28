@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cov1i04hsrs14"
+path="res://.godot/imported/Evening Harmony.wav-f95ed7be180f1240772133fb128d86ee.sample"
+
+[deps]
+
+source_file="res://Assets/Music/Evening Harmony.wav"
+dest_files=["res://.godot/imported/Evening Harmony.wav-f95ed7be180f1240772133fb128d86ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

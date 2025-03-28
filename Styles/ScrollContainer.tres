@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bkrg2b07k1vm1"]
+
+[ext_resource type="StyleBox" uid="uid://m40jwwi7o8ku" path="res://Styles/ScrollGrabber.tres" id="1_srfb4"]
+[ext_resource type="StyleBox" uid="uid://6cnd5qwbjyaq" path="res://Styles/Scroll.tres" id="2_gvtre"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srfb4"]
+content_margin_right = 3.0
+draw_center = false
+expand_margin_right = 2.0
+
+[resource]
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_srfb4")
+VScrollBar/styles/grabber = ExtResource("1_srfb4")
+VScrollBar/styles/grabber_highlight = ExtResource("1_srfb4")
+VScrollBar/styles/grabber_pressed = ExtResource("1_srfb4")
+VScrollBar/styles/scroll = ExtResource("2_gvtre")
+VScrollBar/styles/scroll_focus = ExtResource("2_gvtre")

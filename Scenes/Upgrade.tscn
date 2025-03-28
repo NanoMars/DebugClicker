@@ -46,8 +46,9 @@ script = ExtResource("3_q44um")
 description_icon_reference = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect")
 description_text_reference = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label")
 
-[node name="Node" parent="." instance=ExtResource("4_wk5g7")]
+[node name="Node" parent="." node_paths=PackedStringArray("button") instance=ExtResource("4_wk5g7")]
 cursor = "Money"
+button = NodePath("..")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1

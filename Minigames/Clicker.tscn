@@ -1,32 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://upa47sauh75v"]
+[gd_scene load_steps=6 format=3 uid="uid://upa47sauh75v"]
 
 [ext_resource type="Script" uid="uid://1kg1h6wr2lti" path="res://Scripts/clicker.gd" id="1_dqtaq"]
 [ext_resource type="Texture2D" uid="uid://dvutqpxhumwit" path="res://Assets/Piskel Image (1).png" id="2_yhdgw"]
 [ext_resource type="Texture2D" uid="uid://m0sie5pt0sfn" path="res://Assets/Thermometer2.png" id="3_fcs6h"]
 [ext_resource type="Texture2D" uid="uid://coem5kwcm74sf" path="res://Assets/Thermometer1.png" id="4_x6ns5"]
+[ext_resource type="Script" uid="uid://cf83bsaeu6po6" path="res://UI_Basic/Hover_Cursor.gd" id="5_pwq4i"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("texture_button", "temp_display")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_dqtaq")
-texture_button = NodePath("MarginContainer/TextureButton")
-temp_display = NodePath("MarginContainer/TextureProgressBar")
-cold = 20.0
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" node_paths=PackedStringArray("texture_button", "temp_display")]
+clip_children = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("1_dqtaq")
+texture_button = NodePath("MarginContainer/Control/TextureButton")
+temp_display = NodePath("MarginContainer/TextureProgressBar")
+cold = 20.0
+dampening = 0.05
+click_velocity_addition = -3.0
+base_spring_strength = 200.0
+max_scale = 0.1
+spring_out_of_bounds_multiplier = 5.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+clip_children = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,14 +36,6 @@ theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_yhdgw")
-stretch_mode = 0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -57,3 +48,31 @@ fill_mode = 3
 nine_patch_stretch = true
 texture_over = ExtResource("3_fcs6h")
 texture_progress = ExtResource("4_x6ns5")
+
+[node name="Control" type="Control" parent="MarginContainer"]
+clip_children = 1
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/Control" node_paths=PackedStringArray("button")]
+clip_children = 2
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(16, 15)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_yhdgw")
+stretch_mode = 0
+script = ExtResource("5_pwq4i")
+cursor = "Hand"
+button = NodePath(".")

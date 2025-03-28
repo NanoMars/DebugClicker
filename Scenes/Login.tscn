@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqlw05waahlgn"]
+
+[ext_resource type="Texture2D" uid="uid://eu6gs0y8qfi0" path="res://Assets/Wallpapers/Wallpaper.png" id="1_xklxs"]
+[ext_resource type="Script" uid="uid://w5e5e8qi7mjk" path="res://Scenes/wallpaper.gd" id="2_1baen"]
+[ext_resource type="PackedScene" uid="uid://c56xsep8dbxar" path="res://UI_Basic/Window.tscn" id="3_bhoxy"]
+[ext_resource type="PackedScene" uid="uid://b7txrjdem2u3i" path="res://Scenes/Saves_Menu.tscn" id="4_1baen"]
+[ext_resource type="Script" uid="uid://cqaggltk2vk51" path="res://UI_Basic/Delay_show.gd" id="4_bhoxy"]
+[ext_resource type="Texture2D" uid="uid://b3lkeugqtydnt" path="res://Assets/Padlock.png" id="5_a6huy"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xklxs")
+expand_mode = 5
+stretch_mode = 6
+script = ExtResource("2_1baen")
+
+[node name="Window" parent="." instance=ExtResource("3_bhoxy")]
+custom_minimum_size = Vector2(257, 105)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -52.5
+offset_right = 128.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_bhoxy")
+delay_time = 0.7
+delay_time_random = 1.0
+metadata/Icon = ExtResource("5_a6huy")
+
+[node name="Control" parent="Window" instance=ExtResource("4_1baen")]
+layout_mode = 2

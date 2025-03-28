@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://h3puve1h85ml"]
+
+[ext_resource type="FontFile" uid="uid://46lkmrpif0e6" path="res://Assets/Fonts/Terminal Font.ttf" id="1_48215"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hx8pc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fohym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmcmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnyhd"]
+bg_color = Color(0.917647, 0.384314, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr4yb"]
+bg_color = Color(0.941176, 0.505882, 0.192157, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40i60"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg6a7"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_48215")
+Button/styles/disabled = SubResource("StyleBoxEmpty_hx8pc")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_fohym")
+Button/styles/focus = SubResource("StyleBoxEmpty_fmcmw")
+Button/styles/hover = SubResource("StyleBoxFlat_jnyhd")
+Button/styles/hover_mirrored = SubResource("StyleBoxFlat_jnyhd")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_cr4yb")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_cr4yb")
+Button/styles/normal = SubResource("StyleBoxEmpty_40i60")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_cg6a7")
+Button/styles/pressed = SubResource("StyleBoxFlat_cr4yb")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_cr4yb")

@@ -29,4 +29,5 @@ toggle_mode = true
 texture_normal = ExtResource("3_v6w4y")
 texture_pressed = ExtResource("4_iay5r")
 
-[node name="Node" parent="TextureButton" instance=ExtResource("5_iay5r")]
+[node name="Node" parent="TextureButton" node_paths=PackedStringArray("button") instance=ExtResource("5_iay5r")]
+button = NodePath("..")

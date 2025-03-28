@@ -6,28 +6,12 @@ extends Label
 var lines: Array = []  
 
 var random_yap = [
-	"⣜⢵⠷⡯⣺⠗⡻⣄⠝⡧⡿⠞⣍⢲⣽⠋⢤⡺⠧⣹⡇⠾⣡⢣⠎",
-	"FTRAXX//9XΩ::UJGNRL#11.4 ",
-	"V9X-ζχψ₧₧₧₧₧₧₧₧₧₧₧⟰⟰⟰",
-	"𐎘𐎚𐎜𐎠𐎦𐎺𐏁𐏂𐏃𐏉𐏔𐏕𐏖",
-	"𐑑𐑖𐑳𐑛𐑒𐑢𐑧𐑑𐑣𐑦𐑙𐑒𐑢𐑦𐑚𐑒𐑻",
-	"⨁⩤⩫⨟⩹𝔤𝕵⟆𝟟𝟜𝟘𝟙 ",
-	"⨅⨉⩹⫌⫎⫏⩿⨋⩮⩱ ",
-	"jKx9-a1Z.37C zfQ0 [qu?] &= !",
-	"2341:9bn0-lnx@u ~^ /u0r xLsh 4xy9",
-	"[dsFf-l0x] - rTcv(00x07f9d)",
-	"?? => __y9b4-$pQ",
-	"[98xf] : gH9-Z",
-	"sQm-LN64 [f_4+r^vx]",
-	"GHZ> aCkZ(02,00 - gF3#)",
-	"[04x-l1g] cX.aZ - r?9 - kK6_z",
-	"f93l-xx1 - snpQ(13.0)",
-	"zXd7: RvQ-7cx => yz99|~",
-	"10S7-p64 LqTx? [27fxe2]",
-	"rRy4-lCd jH9n^ (?7v)",
-	"cNv9-λ9X aTμ$ -> 1.2.0.β",
-	"[wo0k] iFz(1398a) qZ9-hSy",
-	"_-! &= 74x0 ⟿ ^kS4",
+	"AFSAFKLAJSFLKJALSFJ",
+	"fjdfuhjbfgvdfbjshdbfns",
+	"fhsdjfnad afdjansd kadfadsf",
+	"adsfad",
+	"ewsxcvbnm oiuytg",
+	"wazxdf yghjkmn bvcx"
 ]
 
 func print_to_terminal(text_to_print: String) -> void:

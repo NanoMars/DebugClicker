@@ -13,14 +13,13 @@ var unique_id := str(Time.get_unix_time_from_system()) + "_" + str(get_instance_
 
 func _ready() -> void:
 
-	if (get_parent() is Button or get_parent() is TextureButton) && button == null:
-		button = get_parent()
-
-
 	button.connect("mouse_entered", _on_mouse_entered)
 	button.connect("mouse_exited", _on_mouse_exited)
-	button.connect("button_down", _on_pressed)
-	button.connect("button_up", _on_released)
+	if button is Button or button is TextureButton:
+		button.connect("button_down", _on_pressed)
+		button.connect("button_up", _on_released)
+	else:
+		enable_disable_cursor = false
 
 func _on_mouse_entered() -> void:
 	hover = true

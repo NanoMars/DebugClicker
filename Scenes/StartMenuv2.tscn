@@ -1,0 +1,125 @@
+[gd_scene load_steps=17 format=3 uid="uid://dj87hs5hpysme"]
+
+[ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_g0up4"]
+[ext_resource type="Texture2D" uid="uid://c2xp2ukpame3o" path="res://Assets/Helios_Banner.png" id="2_24o1h"]
+[ext_resource type="Theme" uid="uid://h3puve1h85ml" path="res://Styles/StartMenuButton.tres" id="3_0t05o"]
+[ext_resource type="Texture2D" uid="uid://mccvm6hhegqr" path="res://Assets/Cog.png" id="4_24o1h"]
+[ext_resource type="FontFile" uid="uid://dum0c6jfp53x2" path="res://Assets/Fonts/Standard Galactic Alphabet 8px.ttf" id="4_j0jhm"]
+[ext_resource type="Texture2D" uid="uid://c47w7kpnm8gbq" path="res://Assets/MediaPlayer.png" id="4_o3wok"]
+[ext_resource type="Script" uid="uid://iyan87hf5ehl" path="res://Scripts/AppIcon.gd" id="5_o3wok"]
+[ext_resource type="Texture2D" uid="uid://0ytrc8g3tked" path="res://Assets/LogOut.png" id="5_qteuy"]
+[ext_resource type="PackedScene" uid="uid://c56xsep8dbxar" path="res://UI_Basic/Window.tscn" id="6_lnhnq"]
+[ext_resource type="Texture2D" uid="uid://bfmqo3df8cd0e" path="res://Assets/ShutDown.png" id="6_o3wok"]
+[ext_resource type="PackedScene" uid="uid://ci56h0ahscv1o" path="res://Scenes/Settings.tscn" id="7_3j3p8"]
+[ext_resource type="PackedScene" uid="uid://ik0xa0007272" path="res://Scenes/MusicPlayer.tscn" id="7_lnhnq"]
+[ext_resource type="Script" uid="uid://k7set3oavnnr" path="res://Scenes/LogOut.gd" id="12_js07m"]
+[ext_resource type="Script" uid="uid://buppxbs0ysc3v" path="res://Scenes/ShutDown.gd" id="13_3j3p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnhnq"]
+bg_color = Color(1, 0.639216, 0.113725, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j3p8"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 1
+border_color = Color(0.388235, 0.388235, 0.388235, 1)
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -87.0
+offset_right = 107.0
+grow_vertical = 0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -1
+theme_override_constants/margin_right = -3
+theme_override_constants/margin_bottom = -1
+
+[node name="Control" parent="MarginContainer" instance=ExtResource("1_g0up4")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_lnhnq")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_24o1h")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/separation = 4
+
+[node name="Button4" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0t05o")
+text = "Music"
+icon = ExtResource("4_o3wok")
+alignment = 0
+script = ExtResource("5_o3wok")
+window_scene = ExtResource("6_lnhnq")
+content = ExtResource("7_lnhnq")
+window_custom_minumum_size = Vector2(170, 70)
+owned_at_start = true
+
+[node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0t05o")
+text = "Settings"
+icon = ExtResource("4_24o1h")
+alignment = 0
+script = ExtResource("5_o3wok")
+window_scene = ExtResource("6_lnhnq")
+content = ExtResource("7_3j3p8")
+window_custom_minumum_size = Vector2(200, 71)
+owned_at_start = true
+
+[node name="Panel2" type="Panel" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_3j3p8")
+
+[node name="Button2" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0t05o")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_j0jhm")
+theme_override_font_sizes/font_size = 8
+text = "Log Out"
+icon = ExtResource("5_qteuy")
+alignment = 0
+script = ExtResource("12_js07m")
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0t05o")
+text = "Shut Down"
+icon = ExtResource("6_o3wok")
+alignment = 0
+script = ExtResource("13_3j3p8")
