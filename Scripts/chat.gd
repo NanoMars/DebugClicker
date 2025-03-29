@@ -14,12 +14,16 @@ var potential_messages = [
 	"hey you busy",
 	"Hellooo",
 	"what you up to",
-	"just woke up so tired",
 	"YIPPEEEE",
-	"come outside im here",
 	"Trans rights",
 	"send me the link",
-	"lets do something fun",
+	"whats up",
+	"how are you",
+	"why are you chair",
+	"lolol",
+	"ok",
+	"answer your phone",
+
 ]
 
 var target_input_message: String = ""
@@ -109,7 +113,7 @@ func _on_send_button_pressed() -> void:
 		var num_spawns = base_spawns * chat_owned 
 		var burst_duration = 1.0
 		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager") \
-			.spawn_control_node(global_position + size / 2, num_spawns, burst_duration)
+			.spawn_control_node(global_position + size / 2, num_spawns * (Global.flags.get("Chat_Upgrade_multiply", 0) + 1), burst_duration)
 		
 		chat_input.editable = false
 		send_button.disabled = true

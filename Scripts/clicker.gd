@@ -52,4 +52,4 @@ func _on_texture_button_pressed():
 	velocity += click_velocity_addition
 	if cooling == false:
 		current_temp += 1
-		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, 1 + Global.flags.get("Clicker_Multiplier", 0), 0.2)
+		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, pow(2, Global.flags.get("Clicker_Multiplier", 0)), 0.2)

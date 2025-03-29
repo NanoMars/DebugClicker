@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddhdej6rlccke"]
+[gd_scene load_steps=31 format=3 uid="uid://ddhdej6rlccke"]
 
 [ext_resource type="Script" uid="uid://bobuhpcwbk8er" path="res://Scripts/ShopHandler.gd" id="1_2pg0a"]
 [ext_resource type="PackedScene" uid="uid://d1d61l1bqswdw" path="res://UI_Basic/Rectangle.tscn" id="1_db8k6"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://tbsbr44bt3sq" path="res://Assets/Clock.png" id="19_dcoym"]
 [ext_resource type="Texture2D" uid="uid://cjd5ec7207dca" path="res://Assets/Chat.png" id="20_dcoym"]
 [ext_resource type="Texture2D" uid="uid://cblsq7xlo7f5e" path="res://Assets/DVDpixel.png" id="22_tvfaq"]
+[ext_resource type="Texture2D" uid="uid://cqjnbginr15k7" path="res://Assets/LoadingIconPixel.png" id="25_ciunf"]
+[ext_resource type="Texture2D" uid="uid://cibtwlt5f4h1t" path="res://Assets/TaskManagerIconSmall.png" id="26_3oad8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1c0q"]
 
@@ -104,7 +106,7 @@ metadata/Image = ExtResource("12_6tx2d")
 
 [node name="ShopItem3" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
 layout_mode = 2
-metadata/Price = 2500
+metadata/Price = 5000
 metadata/Name = "DVD"
 metadata/Image = ExtResource("13_ciunf")
 
@@ -116,7 +118,7 @@ metadata/Image = ExtResource("14_3oad8")
 
 [node name="ShopItem5" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_iltxs")]
 layout_mode = 2
-metadata/Price = 10000
+metadata/Price = 50000
 metadata/Name = "Task Manager"
 metadata/Image = ExtResource("15_d5t61")
 
@@ -168,6 +170,19 @@ flag_type = "Int"
 description_icon = ExtResource("16_estnu")
 description_text = " x 2"
 
+[node name="Button6" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("16_mk6g2")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 3000
+flag_name = "Clicker_Multiplier"
+upgrade_name = "Clicker_Multiplier_2"
+upgrade_level = 2
+automation_name = "Clicker"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
 [node name="Button2" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
 layout_mode = 2
 icon = ExtResource("18_k8g64")
@@ -179,18 +194,6 @@ automation_name = "Terminal"
 flag_type = "Bool"
 description_icon = ExtResource("19_dcoym")
 description_text = " x 2"
-
-[node name="Button3" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
-layout_mode = 2
-icon = ExtResource("20_dcoym")
-owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
-price = 1300
-flag_name = "Chat_Upgrade"
-upgrade_name = "Chat_Upgrade_1"
-automation_name = "Chat"
-flag_type = "Int"
-description_icon = ExtResource("19_dcoym")
-description_text = " / 2"
 
 [node name="Button4" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
 layout_mode = 2
@@ -205,16 +208,104 @@ flag_type = "Bool"
 description_icon = ExtResource("16_estnu")
 description_text = " x 2"
 
+[node name="Button3" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("20_dcoym")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 2000
+flag_name = "Chat_Upgrade"
+upgrade_name = "Chat_Upgrade_1"
+automation_name = "Chat"
+flag_type = "Int"
+description_icon = ExtResource("19_dcoym")
+description_text = " / 2"
+
+[node name="Button7" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("20_dcoym")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 4000
+flag_name = "Chat_Upgrade_multiply"
+upgrade_name = "Chat_Upgrade_2"
+upgrade_level = 2
+automation_name = "Chat"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
 [node name="Button5" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
 layout_mode = 2
 icon = ExtResource("22_tvfaq")
 owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
-price = 3500
+price = 5000
 flag_name = "DVD_Upgrade_1"
 upgrade_name = "DVD_Upgrade_1"
 automation_name = "DVD"
 flag_type = "Int"
 description_icon = ExtResource("19_dcoym")
+description_text = " x 2"
+
+[node name="Button8" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("22_tvfaq")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 8000
+flag_name = "DVD_Upgrade_2"
+upgrade_name = "DVD_Upgrade_2"
+upgrade_level = 2
+automation_name = "DVD"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button9" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("25_ciunf")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 17000
+flag_name = "Loading_Upgrade_1"
+upgrade_name = "Loading_Upgrade_1"
+automation_name = "Loading"
+flag_type = "Int"
+description_icon = ExtResource("19_dcoym")
+description_text = " / 2"
+
+[node name="Button10" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("25_ciunf")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 35000
+flag_name = "Loading_Upgrade_2"
+upgrade_name = "Loading_Upgrade_2"
+upgrade_level = 2
+automation_name = "Loading"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button11" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("26_3oad8")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 150000
+flag_name = "Task_Manager"
+upgrade_name = "Task_Manager_Upgrade_1"
+automation_name = "Task Manager"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
+description_text = " x 2"
+
+[node name="Button12" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer/MarginContainer/Upgrades_Available" node_paths=PackedStringArray("owned_container") instance=ExtResource("15_estnu")]
+layout_mode = 2
+icon = ExtResource("26_3oad8")
+owned_container = NodePath("../../../MarginContainer2/Upgrades_Owned")
+price = 200000
+flag_name = "Task_Manager"
+upgrade_name = "Task_Manager_Upgrade_2"
+upgrade_level = 2
+automation_name = "Task Manager"
+flag_type = "Int"
+description_icon = ExtResource("16_estnu")
 description_text = " x 2"
 
 [node name="Control" parent="Control/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("16_wvogg")]

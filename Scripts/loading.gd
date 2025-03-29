@@ -5,6 +5,7 @@ extends Control
 @export var animation_duration: float = 1.0
 @export var money_timer_duration: float = 0.5
 
+@export var base_payout: int = 2500
 var progress: float = 0.0
 var dummy_progress: float = 0.0
 var last_money: int
@@ -23,7 +24,7 @@ var pending_money_diff: int = 0
 func _ready() -> void:
 	last_money = Global.money
 	cashout_button.disabled = true
-	cashout_button.connect("pressed", Callable(self, "_on_cashout_button_pressed"))
+	cashout_button.connect("pressed", _on_cashout_button_pressed)
 
 func _process(delta: float) -> void:
 	var goal: float = 30
@@ -46,7 +47,7 @@ func _process(delta: float) -> void:
 		if money_timer_elapsed >= money_timer_duration:
 			money_timer_elapsed = money_timer_duration
 			money_timer_active = false
-		progress += delta
+		progress += delta * pow(2, Global.flags.get("Loading_Upgrade_1", 0))
 		progress_bar.value = progress
 		cashout_button.disabled = progress < goal
 	else:
@@ -67,4 +68,4 @@ func _on_cashout_button_pressed() -> void:
 		animation_elapsed = 0.0
 		last_removed_amount = 0
 		start_money = Global.money
-		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, 500 * Global.automations_owned.get("Loading", 0), animation_duration)
+		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, (base_payout * Global.automations_owned.get("Loading", 0)) * pow(2, Global.flags.get("Loading_Upgrade_2", 0)), animation_duration)

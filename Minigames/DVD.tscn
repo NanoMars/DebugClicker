@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c2c8l")
 logo = NodePath("TextureRect")
+base_max_speed = Vector2(50, 50)
 button = NodePath("Button")
 
 [node name="ColorRect" type="ColorRect" parent="."]

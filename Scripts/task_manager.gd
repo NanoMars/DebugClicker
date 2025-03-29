@@ -5,6 +5,7 @@ extends Control
 @export var end_task: Button
 @export var timer_thing: Timer
 @export var task_count: int = 5
+@export var money_per_second: int = 300
 
 @export var bug_text_color: Color = Color.RED
 
@@ -128,11 +129,8 @@ func _on_end_task_pressed() -> void:
 		st_data["color_rect"].visible = false
 		selected_task = null
 		bugging_task = {}
-		var multiplier: float = 1 + ((Global.automations_owned.get("Task Manager", 1) - 1) / 3.0)
-		var current_square: int = 3
-		var num_spawns: int = int(round(current_square * current_square * multiplier))
-		var burst_interval: float = 0.1 / multiplier
-		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, num_spawns, num_spawns * burst_interval)
+		var num_spawns: int = int(10000 * pow(2, Global.flags.get("Task_Manager", 0)) * Global.automations_owned.get("Task Manager", 0)) 
+		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, num_spawns, 1)
 		var hide_duration = randf_range(5, 10)
 		var unhide_timer = Timer.new()
 		unhide_timer.one_shot = true
@@ -148,17 +146,15 @@ func _on_unhide_task(st_data: Dictionary) -> void:
 
 func _spawn_cycle() -> void:
 	if bugging_task.size() == 0:
-		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, 1, 0)
+		get_tree().get_root().get_node("BaseNode").get_node("ParticleManager").spawn_control_node(global_position + size / 2, money_per_second / 2 * pow(2, Global.flags.get("Task_Manager", 0)), 0.5)
 	var multiplier: float = 1 + ((Global.automations_owned.get("Task Manager", 1) - 1) / 3.0)
-	var next_spawn_time = randf_range(0.5, 1.0) / multiplier
-	var timer = get_tree().create_timer(next_spawn_time)
+	var timer = get_tree().create_timer(0.5 / multiplier)
 	timer.timeout.connect(func() -> void:
 		_spawn_cycle()
 	)
 
 func _start_bug_timer() -> void:
-	var multiplier: float = 1 + ((Global.automations_owned.get("Task Manager", 1) - 1) / 3.0)
-	timer_thing.wait_time = randf_range(40 * multiplier, 60 * multiplier)
+	timer_thing.wait_time = randf_range(20, 30)
 	timer_thing.start()
 
 func _get_task_data_from_node(node: Node) -> Dictionary:
