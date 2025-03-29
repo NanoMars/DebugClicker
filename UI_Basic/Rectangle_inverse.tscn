@@ -1,17 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2alc63crc160"]
+[gd_scene load_steps=2 format=3 uid="uid://b2alc63crc160"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqew4"]
-bg_color = Color(0.556863, 0.556863, 0.556863, 1)
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sjrx"]
-bg_color = Color(0.556863, 0.556863, 0.556863, 1)
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://c284le8ouyam3" path="res://Assets/Rectangleinverse9Slice.png" id="1_vp0lk"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -20,10 +9,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fqew4")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3sjrx")
+texture = ExtResource("1_vp0lk")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

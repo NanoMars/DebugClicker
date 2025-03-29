@@ -1,17 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1d61l1bqswdw"]
+[gd_scene load_steps=2 format=3 uid="uid://d1d61l1bqswdw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqfpp"]
-bg_color = Color(0.556863, 0.556863, 0.556863, 1)
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x5qq"]
-bg_color = Color(0.556863, 0.556863, 0.556863, 1)
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_color = Color(1, 1, 1, 1)
+[ext_resource type="Texture2D" uid="uid://j4cs7mg1ucul" path="res://Assets/Rectangle9Slice.png" id="1_11u3d"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,20 +10,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jqfpp")
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5x5qq")
+texture = ExtResource("1_11u3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

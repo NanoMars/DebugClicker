@@ -26,8 +26,8 @@ func _notification(what):
 
 func save():
 	if current_save_slot >= 0:
-		var current_name = get_save_name(current_save_slot)
-		save_game(current_save_slot, current_name)
+		var current_textures = get_save_textures(current_save_slot)
+		save_game(current_save_slot, current_textures)
 
 func save_and_quit():
 	var main_windows = get_tree().get_nodes_in_group("MainWindow")
@@ -40,12 +40,12 @@ func save_and_quit():
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Startup1.tscn")
 
-func save_game(slot: int = 0, name: String = ""):
-	if name == "":
-		name = "Save " + str(slot)
+func save_game(slot: int = 0, textures: Array = []):
+	if textures.size() == 0:
+		textures = ["res://Assets/Emojis/Emojiquestionmark.png", "res://Assets/Emojis/Emojiquestionmark.png", "res://Assets/Emojis/Emojiquestionmark.png"]
 	var file_path = "user://savegame_slot_%d.json" % slot
 	var save_data = {
-		"name": name,
+		"textures": textures,
 		"money": money,
 		"automations_owned": automations_owned,
 		"upgrades_owned": upgrades_owned,
@@ -97,7 +97,7 @@ func delete_save(slot: int) -> void:
 	else:
 		print("Failed to open user:// directory")
 
-func update_save_name(slot: int, new_name: String) -> void:
+func update_save_textures(slot: int, new_textures: Array) -> void:
 	var file_path = "user://savegame_slot_%d.json" % slot
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
@@ -106,17 +106,17 @@ func update_save_name(slot: int, new_name: String) -> void:
 		if json.parse(data) == OK:
 			var save_data = json.data
 			file.close()
-			save_data["name"] = new_name
-			print("Save name updated for slot ", slot, " to ", new_name)
+			save_data["textures"] = new_textures
+			print("Save textures updated for slot ", slot, " to ", new_textures)
 			file = FileAccess.open(file_path, FileAccess.WRITE)
 			file.store_string(JSON.stringify(save_data))
-			print("Save name updated for slot ", slot)
+			print("Save textures updated for slot ", slot)
 		else:
-			print("Error parsing save file in update_save_name: ", json.get_error_message())
+			print("Error parsing save file in update_save_textures: ", json.get_error_message())
 	else:
 		print("No save file found for slot ", slot)
 
-func get_save_name(slot: int) -> String:
+func get_save_textures(slot: int) -> Array:
 	var file_path = "user://savegame_slot_%d.json" % slot
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
@@ -125,15 +125,15 @@ func get_save_name(slot: int) -> String:
 		if json.parse(data) == OK:
 			var save_data = json.data
 			file.close()
-			if save_data.has("name"):
-				return save_data["name"]
+			if save_data.has("textures"):
+				return save_data["textures"]
 			else:
-					return ""
+				return []
 		else:
-			print("Error parsing save file in get_save_name: ", json.get_error_message())
-			return ""
+			print("Error parsing save file in get_save_textures: ", json.get_error_message())
+			return []
 	else:
-		return ""
+		return []
 
 func logout_user():
 	var main_windows = get_tree().get_nodes_in_group("MainWindow")

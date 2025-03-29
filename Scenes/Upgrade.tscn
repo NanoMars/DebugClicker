@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rmjs3oogvhia"]
+[gd_scene load_steps=16 format=3 uid="uid://rmjs3oogvhia"]
 
 [ext_resource type="StyleBox" uid="uid://be366m0rcsgli" path="res://UI_Basic/Dark.tres" id="1_pt5ib"]
 [ext_resource type="StyleBox" uid="uid://c5ex7dqfdc17u" path="res://Styles/Light.tres" id="2_q44um"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://fgnx086ovxiy" path="res://Assets/Fonts/3x5 Pixel Numbers.otf" id="5_i4t4o"]
 [ext_resource type="Script" uid="uid://5t1ofh57v6qg" path="res://Scenes/Tooltip.gd" id="7_cj77a"]
 [ext_resource type="Texture2D" uid="uid://bckar0rffek3l" path="res://Assets/Production.png" id="8_i4t4o"]
+[ext_resource type="Texture2D" uid="uid://nmhtwippte0j" path="res://Assets/RectangleRound9Slice.png" id="9_wdarq"]
 [ext_resource type="FontFile" uid="uid://81fd5aw0u0e8" path="res://Assets/Fonts/Pixolletta10px.ttf" id="9_wk5g7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf8el"]
@@ -17,13 +18,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6f0bi"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj77a"]
-bg_color = Color(0.556863, 0.556863, 0.556863, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nv1wo"]
 
 [node name="Button" type="Button" node_paths=PackedStringArray("description_icon_reference", "description_text_reference")]
 custom_minimum_size = Vector2(16, 16)
@@ -98,9 +93,17 @@ layout_mode = 0
 offset_right = 87.0
 offset_bottom = 34.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cj77a")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nv1wo")
 script = ExtResource("7_cj77a")
 price_label = NodePath("MarginContainer/VBoxContainer/Price_Label")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("9_wdarq")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2

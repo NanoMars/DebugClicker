@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://dduxls6e1108v"]
+
+[ext_resource type="Script" uid="uid://bdonx23y8gikt" path="res://Scenes/emoji_picker.gd" id="1_2gme1"]
+[ext_resource type="PackedScene" uid="uid://cohhwpi7hv6tn" path="res://UI_Basic/RoundedRectangle.tscn" id="1_hy4ep"]
+[ext_resource type="Theme" uid="uid://bgno5x8p6802h" path="res://Styles/NoButton.tres" id="1_vn10b"]
+[ext_resource type="Texture2D" uid="uid://b087s3pvsusa1" path="res://Assets/Emojis/Emoji Smile.png" id="2_hy4ep"]
+[ext_resource type="Texture2D" uid="uid://cxms84kh8utpp" path="res://Assets/Backspace.png" id="3_2gme1"]
+[ext_resource type="Texture2D" uid="uid://c2cv5xn482e2p" path="res://Assets/Emojis/Emoji COOL.png" id="3_vwduc"]
+[ext_resource type="Texture2D" uid="uid://bgtiab4qd7d2q" path="res://Assets/Emojis/Emoji Evil.png" id="4_2gme1"]
+[ext_resource type="Texture2D" uid="uid://8ce7dkcyql51" path="res://Assets/Emojis/Emoji Love.png" id="5_0v5hv"]
+[ext_resource type="Texture2D" uid="uid://cff2x6kmfca40" path="res://Assets/Emojis/Emoji Bored.png" id="6_5lgx2"]
+[ext_resource type="Texture2D" uid="uid://cyqefhrbx0i8u" path="res://Assets/Emojis/Emoji Sleep.png" id="7_efact"]
+[ext_resource type="Texture2D" uid="uid://e6yg1slh2ux" path="res://Assets/Emojis/Emoji Sob.png" id="8_qegok"]
+[ext_resource type="Texture2D" uid="uid://tw6vnfrugnjo" path="res://Assets/Emojis/Emoji Super Smile.png" id="9_yq3li"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("emoji_container", "backspace")]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_2gme1")
+emoji_container = NodePath("MarginContainer/GridContainer")
+backspace = NodePath("NinePatchRect2/CenterContainer/Button4")
+
+[node name="NinePatchRect2" parent="." instance=ExtResource("1_hy4ep")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 42.0
+offset_right = 62.0
+offset_bottom = 20.0
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button4" type="Button" parent="NinePatchRect2/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("3_2gme1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -2
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = -2
+theme_override_constants/margin_bottom = -2
+
+[node name="NinePatchRect" parent="MarginContainer/MarginContainer" instance=ExtResource("1_hy4ep")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 4
+
+[node name="Button" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("2_hy4ep")
+
+[node name="Button2" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("3_vwduc")
+
+[node name="Button3" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("4_2gme1")
+
+[node name="Button4" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("5_0v5hv")
+
+[node name="Button5" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("6_5lgx2")
+
+[node name="Button6" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("7_efact")
+
+[node name="Button7" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("8_qegok")
+
+[node name="Button8" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_vn10b")
+theme_override_colors/icon_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+icon = ExtResource("9_yq3li")
